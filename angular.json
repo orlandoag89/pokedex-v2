@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "pdx2",
+      "prefix": "pkd2",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

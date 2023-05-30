@@ -1,5 +1,6 @@
 {
   "PAGE__home": {
-    "PROP__hello_world": "Hola _ MUNDO"
+    "PROP__hello": "Hola",
+    "PROP__world": "Mundo"
   }
 }

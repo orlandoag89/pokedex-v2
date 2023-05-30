@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { GetTransalte } from './module/core/translation/get-translate';
-import { HomeComponent } from './module/home/home.component';
+import { HomeModule } from './module/home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   imports: [
+    HomeModule,
     BrowserModule,
     AppRoutingModule,
     TranslateModule.forRoot({
