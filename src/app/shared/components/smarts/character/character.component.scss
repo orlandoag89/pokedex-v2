@@ -1,0 +1,20 @@
+.character {
+  width: 100%;
+  border: 1px solid red;
+  &__img-content {
+    width: 20%;
+    height: 20vh;
+    border: 1px solid green;
+    margin: auto;
+    &--shadow {
+      width: 20%;
+      height: 20vh;
+      background: rgb(2,0,36);
+      background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,37,1) 35%, rgba(205,217,219,1) 100%);
+      color: yellow;
+    }
+    &--shadow::after {
+      content: '¿¿??';
+    }
+  }
+}

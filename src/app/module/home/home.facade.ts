@@ -6,6 +6,6 @@ import { ValuesKeys } from "./enums/values.keys";
 export class HomeFacade extends BaseFacade {
 
   override initTranslate(): Map<string, string> {
-    return this.translation.doTranslate('home', Object.values(ValuesKeys))
+    return this.translation.doTranslate('home', Object.values(ValuesKeys));
   }
 }

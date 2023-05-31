@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this._facade.initTranslate());
-    
+    this._facade.retrievePokemons().subscribe(console.log);
   }
 
 }
