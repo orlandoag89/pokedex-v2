@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BaseFacade } from "../core/facade/base.facade";
+import { BaseFacade } from "@core/base-facade";
 import { ValuesKeys } from "./enums/values.keys";
 
 @Injectable({providedIn: 'root'})

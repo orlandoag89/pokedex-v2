@@ -23,7 +23,13 @@
       "dom"
     ],
     "resolveJsonModule": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@core/base-facade": ["src/app/module/core/facade/index.ts"],
+      "@core/translator": ["src/app/module/core/translation/index.ts"],
+      "@smarts-components": ["src/app/shared/components/smarts/index.ts"],
+      "@modules": ["src/app/module/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

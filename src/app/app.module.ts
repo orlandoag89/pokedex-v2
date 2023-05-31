@@ -4,8 +4,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { GetTransalte } from './module/core/translation/get-translate';
-import { HomeModule } from './module/home/home.module';
+import { GetTransalte } from '@core/translator';
+import { HomeModule } from '@modules';
 
 @NgModule({
   declarations: [
