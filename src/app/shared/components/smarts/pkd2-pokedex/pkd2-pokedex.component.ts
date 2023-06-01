@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { PokemonModel } from '@core/services';
 
 @Component({
   selector: 'pkd2-pokedex',
@@ -6,11 +7,14 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./pkd2-pokedex.component.scss']
 })
 export class Pkd2PokedexComponent {
-
-  public showScreen: boolean = false;
-
+  
+  @Input()
+  public currentPokemon: PokemonModel;
+  
   @Output()
-  private capture = new EventEmitter<void>();
+  public capture = new EventEmitter<void>();
+  
+  public showScreen: boolean = false;
 
   openScreen(): void {
     this.capture.emit();

@@ -9,7 +9,10 @@
     </div>
     <div *ngIf="showScreen" class="pokedex__controls">
       <div class="screen">
-        <!-- <pkd2-character></pkd2-character> -->
+        <figure class="screen__figure">
+          <img [src]="currentPokemon.sprites.other.dream_world.front_default" [alt]="currentPokemon.name" class="screen__img">
+          <figcaption>{{currentPokemon.name}}</figcaption>
+        </figure>
       </div>
     </div>
     <div class="pokedex__wizard pokedex__wizard--bottom">

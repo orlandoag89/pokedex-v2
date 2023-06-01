@@ -34,10 +34,10 @@
     border-bottom: .1rem solid black;
   }
   &__controls {
-    width: 90%;
+    width: 80%;
     margin: auto;
     height: 12rem;
-    border: 1px solid blue;
+    border: 1rem solid blue;
   }
 }
 .light{
@@ -48,10 +48,27 @@
   left: 0;
   right: 0;
   margin: auto;
-  top: 2rem;
   border-radius: 100%;
+  margin-top: 1.5rem;
   &--shadow {
     box-shadow: 0 0 1.2rem blue;
     border: .5rem solid blue;
+  }
+}
+
+.screen {
+  &__figure {
+    margin: 3rem auto 0 auto;
+    width: 50%;
+    height: 5rem;
+    border: 1px solid black;
+    border-radius: .3rem;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+  figcaption {
+    text-align: center;
   }
 }

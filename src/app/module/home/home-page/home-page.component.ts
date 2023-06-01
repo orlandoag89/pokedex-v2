@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable } from 'rxjs';
-import { PokemonModel } from '../../core/services/models';
+import { Observable, interval, take } from 'rxjs';
+import { PokemonModel } from '@core/services';
 
 @Component({
   selector: 'pkd2-home-page',
@@ -24,7 +24,10 @@ export class HomePageComponent implements OnInit {
   }
 
   saveCurrentPokemon(p: PokemonModel) {
-    console.log("🚀 ~ file: home-page.component.ts:27 ~ HomePageComponent ~ saveCurrentPokemon ~ ::", p)
     this._facade.setCurrentPokemon(p);
+  }
+
+  showCurrenPokemon() {
+    interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = !this.showPokemon)
   }
 }

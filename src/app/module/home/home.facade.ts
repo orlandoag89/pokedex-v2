@@ -27,6 +27,5 @@ export class HomeFacade extends BaseFacade {
   }
 
   public setCurrentPokemon(p:PokemonModel) {
-    this.setPokemon(p);
   }
 }
