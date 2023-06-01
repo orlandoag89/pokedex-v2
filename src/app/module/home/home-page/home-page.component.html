@@ -7,4 +7,6 @@
     <button (click)="showPokemon = !showPokemon">Mostrar</button>
   </ng-container>
 </div> -->
-<pkd2-pokedex></pkd2-pokedex>
+<ng-container *ngIf="pokemonRandom$|async as p">
+  <pkd2-pokedex (capture)="saveCurrentPokemon(p)"></pkd2-pokedex>
+</ng-container>

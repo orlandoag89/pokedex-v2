@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pkd2-pokedex',
   templateUrl: './pkd2-pokedex.component.html',
   styleUrls: ['./pkd2-pokedex.component.scss']
 })
-export class Pkd2PokedexComponent implements OnInit {
+export class Pkd2PokedexComponent {
 
   public showScreen: boolean = false;
 
-  constructor() { }
+  @Output()
+  private capture = new EventEmitter<void>();
 
-  ngOnInit(): void {
+  openScreen(): void {
+    this.capture.emit();
+    this.showScreen = !this.showScreen;
   }
-
 }

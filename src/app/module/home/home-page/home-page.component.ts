@@ -23,4 +23,8 @@ export class HomePageComponent implements OnInit {
     this.pokemonRandom$ = this._facade.getRandomPokemon();
   }
 
+  saveCurrentPokemon(p: PokemonModel) {
+    console.log("🚀 ~ file: home-page.component.ts:27 ~ HomePageComponent ~ saveCurrentPokemon ~ ::", p)
+    this._facade.setCurrentPokemon(p);
+  }
 }

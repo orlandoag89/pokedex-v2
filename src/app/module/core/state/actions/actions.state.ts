@@ -15,3 +15,8 @@ export const initLoader = createAction(
 export const finishLoader = createAction(
   '[Pokemon Not Loader]'
 );
+
+export const actionSaveCurrentPokemon = createAction(
+  '[Save Pkemon] Save Current Pokemon',
+  props<{ currentPokemon: PokemonModel }>()
+);

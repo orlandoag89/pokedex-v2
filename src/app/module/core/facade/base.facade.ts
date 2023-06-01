@@ -4,7 +4,7 @@ import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
 import { PokeApiService, PokemonModel } from "@core/services";
-import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons } from "@core/state";
+import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon } from "@core/state";
 
 export abstract class BaseFacade {
 
@@ -31,6 +31,10 @@ export abstract class BaseFacade {
 
   public getPokemons(): Observable<PokemonModel[]> {
     return this._select<PokemonModel[]>(selectorPokemons);
+  }
+
+  public setPokemon(p: PokemonModel):void {
+    return this._dispatch(actionSaveCurrentPokemon({ currentPokemon: p}))
   }
 
   private _dispatch(action: any) {
