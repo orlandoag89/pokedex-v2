@@ -5,7 +5,7 @@ import { Paths } from './enums/paths.enum'
 import { PokeApiEnum } from './enums/pokeapi.enums'
 import { PokemonResponseModel } from './models/pokemon-response.model';
 import { Observable } from 'rxjs';
-import { AbilityModel } from './models/ability.model';
+import { PokemonModel } from './models/pokemon.model';
 
 @Injectable({ providedIn:'root' })
 export class PokeApiService {
@@ -17,7 +17,12 @@ export class PokeApiService {
     return this._httpClient.get<PokemonResponseModel>(url);
   }
 
-  public getPokemon(url:string): Observable<AbilityModel> {
-    return this._httpClient.get<AbilityModel>(url);
+  public getPokemon(url:string): Observable<PokemonModel> {
+    return this._httpClient.get<PokemonModel>(url);
+  }
+
+  public getPokemonById(id: number): Observable<PokemonModel> {
+    const url = `${Paths.POKE_API_V2}/${id}`;
+    return this._httpClient.get<PokemonModel>(url);
   }
 }

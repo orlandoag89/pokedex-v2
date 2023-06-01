@@ -7,7 +7,7 @@ import { TypeModel } from "./type.model";
 
 export interface PokemonModel {
   abilities: AbilityModel[];
-  base_experience: string|null;
+  base_experience: number|null;
   forms: CommonModel[];
   game_indices: [];
   height: number;

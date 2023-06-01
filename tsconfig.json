@@ -28,6 +28,7 @@
       "@core/base-facade": ["src/app/module/core/facade/index.ts"],
       "@core/translator": ["src/app/module/core/translation/index.ts"],
       "@core/services": ["src/app/module/core/services/index.ts"],
+      "@core/state": ["src/app/module/core/state/index.ts"],
       "@smarts-components": ["src/app/shared/components/smarts/index.ts"],
       "@modules": ["src/app/module/index.ts"]
     }
