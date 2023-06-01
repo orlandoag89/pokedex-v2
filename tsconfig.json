@@ -30,7 +30,7 @@
       "@core/services": ["src/app/module/core/services/index.ts"],
       "@core/state": ["src/app/module/core/state/index.ts"],
       "@smarts-components": ["src/app/shared/components/smarts/index.ts"],
-      "@dumb-components": ["src/app/shared/components/dumb/index.ts"],
+      "@dumbs-components": ["src/app/shared/components/dumb/index.ts"],
       "@modules": ["src/app/module/index.ts"]
     }
   },

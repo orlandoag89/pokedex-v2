@@ -1,1 +1,1 @@
-export * from './character/index';
+export * from './pokedex/index';
