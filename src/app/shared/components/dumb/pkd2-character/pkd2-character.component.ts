@@ -3,10 +3,10 @@ import { PokemonModel } from '@core/services';
 
 @Component({
   selector: 'pkd2-character',
-  templateUrl: './character.component.html',
-  styleUrls: ['./character.component.scss']
+  templateUrl: './pkd2-character.component.html',
+  styleUrls: ['./pkd2-character.component.scss']
 })
-export class CharacterComponent {
+export class Pkd2CharacterComponent {
 
   @Input()
   public pokemon: PokemonModel;
