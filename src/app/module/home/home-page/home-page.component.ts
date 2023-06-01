@@ -28,6 +28,6 @@ export class HomePageComponent implements OnInit {
   }
 
   showCurrenPokemon() {
-    interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = !this.showPokemon)
+    interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = true);
   }
 }
