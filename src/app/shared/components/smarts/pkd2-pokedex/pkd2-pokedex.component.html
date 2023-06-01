@@ -1,1 +1,15 @@
-<p>pokedex works!</p>
+<div class="pokedex">
+  <div class="pokedex__container">
+    <div class="pokedex__wizard pokedex__wizard--top">
+      <span class="light light--shadow"></span>
+      <div class="pokedex__line"></div>
+    </div>
+    <div >
+      <button class="pokedex__button" (click)="showScreen = !showScreen">OK</button>
+    </div>
+    <div *ngIf="showScreen" class="pokedex__controls"></div>
+    <div class="pokedex__wizard pokedex__wizard--bottom">
+      <div class="pokedex__line"></div>
+    </div>
+  </div>
+</div>

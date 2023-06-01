@@ -1,0 +1,57 @@
+.pokedex {
+  width: 100%;
+  &__container {
+    width: 20%;
+    margin: auto;
+  }
+  &__wizard {
+    width: 100%;
+    height: 10rem;
+    background-color: red;
+    &--top {
+      border-radius: .8rem .8rem 0 0;
+      border-bottom: .1rem solid black;
+    }
+    &--bottom {
+      border-radius: 0 0 .8rem .8rem;
+      border-top: .1rem solid black;
+    }
+  }
+  &__button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  &__line {
+    width: 100%;
+    height: 5rem;
+    border-bottom: .1rem solid black;
+  }
+  &__controls {
+    width: 90%;
+    margin: auto;
+    height: 12rem;
+    border: 1px solid blue;
+  }
+}
+.light{
+  width: 0;
+  height: 0;
+  border: .5rem solid white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2rem;
+  border-radius: 100%;
+  &--shadow {
+    box-shadow: 0 0 1.2rem blue;
+    border: .5rem solid blue;
+  }
+}

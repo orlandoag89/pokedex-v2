@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Pkd2PokedexComponent implements OnInit {
 
+  public showScreen: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
