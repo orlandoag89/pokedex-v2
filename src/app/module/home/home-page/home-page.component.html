@@ -1,7 +1,9 @@
 <div class="home">
+  <ng-container *ngIf="loading$|async as l">
+    <pkd2-spinner [showing]="l"></pkd2-spinner>
+  </ng-container>
   <ng-container *ngIf="pokemonRandom$|async as p">
     <pkd2-character [pokemon]="p" [showing]="showPokemon"></pkd2-character>
     <button (click)="showPokemon = !showPokemon">Mostrar</button>
   </ng-container>
 </div>
-{{loading$|async}}
