@@ -1,10 +1,10 @@
 import { inject } from "@angular/core";
 import { Store } from '@ngrx/store';
-import { finalize, map, mergeMap, switchMap } from "rxjs";
+import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
-import { PokeApiService } from "@core/services";
-import { initLoader, loadPokemons, finishLoader, loaderSelector } from "@core/state";
+import { PokeApiService, PokemonModel } from "@core/services";
+import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons } from "@core/state";
 
 export abstract class BaseFacade {
 
@@ -14,7 +14,7 @@ export abstract class BaseFacade {
   
   abstract initTranslate(): Map<string,string>;
 
-  public retrievePokemons() {
+  public retrievePokemons(): Observable<void> {
     this._dispatch(initLoader())
     return this._pokeApi.geAlltPokemons().pipe(
       switchMap(v => v.results),
@@ -25,15 +25,19 @@ export abstract class BaseFacade {
     );
   }
 
-  getLoading() {
-    return this._select(loaderSelector);
+  public getLoading(): Observable<boolean> {
+    return this._select<boolean>(loaderSelector);
+  }
+
+  public getPokemons(): Observable<PokemonModel[]> {
+    return this._select<PokemonModel[]>(selectorPokemons);
   }
 
   private _dispatch(action: any) {
     this._store.dispatch(action);
   }
 
-  private _select(selector:any) {
+  private _select<T>(selector:any):Observable<T> {
     return this._store.select(selector);
   }
 }
