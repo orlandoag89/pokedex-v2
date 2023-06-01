@@ -4,7 +4,7 @@ import { finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
 import { PokeApiService } from "@core/services";
-import { initLoader, loadPokemons, finishLoader } from "@core/state";
+import { initLoader, loadPokemons, finishLoader, loaderSelector } from "@core/state";
 
 export abstract class BaseFacade {
 
@@ -25,7 +25,15 @@ export abstract class BaseFacade {
     );
   }
 
+  getLoading() {
+    return this._select(loaderSelector);
+  }
+
   private _dispatch(action: any) {
     this._store.dispatch(action);
+  }
+
+  private _select(selector:any) {
+    return this._store.select(selector);
   }
 }

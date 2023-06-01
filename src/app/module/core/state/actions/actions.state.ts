@@ -1,6 +1,7 @@
 import { createAction } from "@ngrx/store";
-import {props} from '@ngrx/store'
-import { PokemonModel } from "../../services/models/pokemon.model";
+import {props} from '@ngrx/store';
+
+import { PokemonModel } from "@core/services";
 
 export const loadPokemons = createAction(
   '[Pokemon List] Add Pokemons',

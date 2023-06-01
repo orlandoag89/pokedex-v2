@@ -1,4 +1,4 @@
-import { PokemonModel } from "../../services/models/pokemon.model";
+import { PokemonModel } from "@core/services";
 
 export interface IPokemon {
   loading: boolean;

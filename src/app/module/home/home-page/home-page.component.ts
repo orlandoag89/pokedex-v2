@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pkd2-home-page',
@@ -8,12 +9,14 @@ import { HomeFacade } from '../home.facade';
 })
 export class HomePageComponent implements OnInit {
 
+  public loading$: Observable<unknown>;
+
   private _facade: HomeFacade = inject(HomeFacade);
 
   ngOnInit(): void {
     console.log(this._facade.initTranslate());
-    // this._facade.retrievePokemons().subscribe(console.log);
-    this._facade.getRandomPokemon()
+    this.loading$ = this._facade.getLoading();
+    this._facade.retrievePokemons().subscribe();
   }
 
 }
