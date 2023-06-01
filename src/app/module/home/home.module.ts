@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { PokeApiService } from "@core/services";
 import { CharacterModule } from "@dumbs-components";
 import { SpinnerModule } from "@dumbs-components";
-import { PokedexModule } from "@smarts-components";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { Pkd2PokedexModule } from "@smarts-components";
 
 @NgModule({
   declarations: [ HomePageComponent ],
@@ -12,7 +12,7 @@ import { HomePageComponent } from "./home-page/home-page.component";
     CommonModule,
     CharacterModule,
     SpinnerModule,
-    PokedexModule
+    Pkd2PokedexModule
   ],
   providers: [
     PokeApiService
