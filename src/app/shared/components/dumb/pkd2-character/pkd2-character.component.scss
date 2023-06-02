@@ -1,17 +1,17 @@
 .character {
   width: 100%;
-  border: 1px solid red;
+  --width: 60%;
+  --height: 30vh;
   &__img-content {
-    width: 20%;
-    height: 20vh;
-    border: 1px solid green;
+    width: var(--width);
+    height: var(--height);
     margin: auto;
     &--shadow {
-      width: 20%;
-      height: 20vh;
+      width: var(--width);
+      height: var(--height);
       background: rgb(2,0,36);
       background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,37,1) 35%, rgba(205,217,219,1) 100%);
-      color: yellow;
+      color: var(--gold);
     }
     &--shadow::after {
       content: "¿¿??";

@@ -1,0 +1,12 @@
+.home {
+  width: 100%;
+  border: 1px solid green;
+  display: flex;
+  flex-flow: row nowrap;
+  &__character {
+    width: 50%;
+  }
+  &__pokedex {
+    width: 50%;
+  }
+}

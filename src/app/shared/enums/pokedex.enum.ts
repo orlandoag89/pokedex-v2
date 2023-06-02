@@ -1,3 +1,4 @@
 export enum PokedexEnum {
-  SEARCH = 'search'
+  SEARCH = 'search',
+  HIDDEN = 'hidden'
 }

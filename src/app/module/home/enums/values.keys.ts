@@ -1,5 +1,6 @@
 export enum ValuesKeys {
   HELLO = 'hello',
   WORLD = 'world',
-  SEARCH = 'search'
+  SEARCH = 'search',
+  HIDDEN = 'hidden'
 }

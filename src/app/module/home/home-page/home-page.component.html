@@ -1,9 +1,13 @@
-<div class="home">
-  <ng-container *ngIf="loading$|async as l">
-    <pkd2-spinner [showing]="l"></pkd2-spinner>
-  </ng-container>
-  <ng-container *ngIf="pokemonRandom$|async as p">
-    <pkd2-character [pokemon]="p" [showing]="showPokemon"></pkd2-character>
-    <pkd2-pokedex [texts]="traduction" [currentPokemon]="p" (capture)="showCurrenPokemon()"></pkd2-pokedex>
-  </ng-container>
-</div>
+<ng-container *ngIf="loading$|async as l">
+  <pkd2-spinner [showing]="l"></pkd2-spinner>
+</ng-container>
+<ng-container *ngIf="pokemonRandom$|async as p">
+  <div class="home">
+    <div class="home__character">
+      <pkd2-character [pokemon]="p" [showing]="showPokemon"></pkd2-character>
+    </div>
+    <div class="home__pokedex">
+      <pkd2-pokedex [texts]="traduction" [currentPokemon]="p" (capture)="showCurrenPokemon()"></pkd2-pokedex>
+    </div>
+  </div>
+</ng-container>
