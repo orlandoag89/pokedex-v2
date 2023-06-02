@@ -1,12 +1,24 @@
 .pokedex {
+  max-width: 30rem;
   width: 100%;
+  .light {
+    &--red {
+      background-color: var(--red-rescue-team);
+    }
+    &--yellow {
+      background-color: var(--gold);
+    }
+    &--green {
+      background-color: var(--lawn-green);
+    }
+  }
   &__button--main {
     width: 75%;
     height: 4rem;
     margin: auto;
     border-radius: 1rem;
     cursor: pointer;
-    background-color: #32CD32;
+    background-color: var(--lime-green);
     border: .15rem solid var(--black);
   }
   &__button--radius {
@@ -95,7 +107,7 @@
       width: 5rem;
       height: .2rem;
       border-radius: .1rem;
-      background-color: black;
+      background-color: var(--black);
     }
     &__item--w3 {
       margin-top: .7rem;
