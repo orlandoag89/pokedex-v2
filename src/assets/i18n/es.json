@@ -1,6 +1,7 @@
 {
   "PAGE__home": {
     "PROP__hello": "Hola",
-    "PROP__world": "Mundo"
+    "PROP__world": "Mundo",
+    "PROP__search": "Buscar"
   }
 }

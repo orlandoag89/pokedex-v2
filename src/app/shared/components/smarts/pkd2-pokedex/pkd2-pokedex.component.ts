@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { PokemonModel } from '@core/services';
+import { PokedexEnum } from '@shared/enums';
 import { interval, takeWhile } from 'rxjs';
 
 @Component({
@@ -8,15 +9,15 @@ import { interval, takeWhile } from 'rxjs';
   styleUrls: ['./pkd2-pokedex.component.scss']
 })
 export class Pkd2PokedexComponent {
+
+  @Input() texts: Map<string, string>;
+  @Input() currentPokemon: PokemonModel;
   
-  @Input()
-  public currentPokemon: PokemonModel;
-  
-  @Output()
-  public capture = new EventEmitter<void>();
+  @Output() private capture = new EventEmitter<void>();
   
   public showScreen: boolean = false;
   public destello: boolean = false;
+  public PokedexEnum = PokedexEnum;
 
   private _c = 0;
 

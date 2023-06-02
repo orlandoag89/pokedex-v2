@@ -14,7 +14,13 @@
       color: yellow;
     }
     &--shadow::after {
-      content: '¿¿??';
+      content: "¿¿??";
+      font-size: 2rem;
+      display: inline;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 130%);
     }
   }
   &__img {

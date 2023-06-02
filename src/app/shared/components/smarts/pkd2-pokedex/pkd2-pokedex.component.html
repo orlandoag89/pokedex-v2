@@ -5,7 +5,7 @@
       <div class="pokedex__line"></div>
     </div>
     <div >
-      <button class="pokedex__button" (click)="openScreen()">Abrir</button>
+      <button class="pokedex__button" (click)="openScreen()">{{texts.get(PokedexEnum.SEARCH)}}</button>
     </div>
     <div *ngIf="showScreen" class="pokedex__controls">
       <div class="screen">

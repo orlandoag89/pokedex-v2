@@ -31,6 +31,7 @@
       "@core/state": ["src/app/module/core/state/index.ts"],
       "@smarts-components": ["src/app/shared/components/smarts/index.ts"],
       "@dumbs-components": ["src/app/shared/components/dumb/index.ts"],
+      "@shared/enums": ["src/app/shared/enums/index.ts"],
       "@modules": ["src/app/module/index.ts"]
     }
   },

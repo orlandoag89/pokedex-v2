@@ -4,6 +4,6 @@
   </ng-container>
   <ng-container *ngIf="pokemonRandom$|async as p">
     <pkd2-character [pokemon]="p" [showing]="showPokemon"></pkd2-character>
-    <pkd2-pokedex [currentPokemon]="p" (capture)="showCurrenPokemon()"></pkd2-pokedex>
+    <pkd2-pokedex [texts]="traduction" [currentPokemon]="p" (capture)="showCurrenPokemon()"></pkd2-pokedex>
   </ng-container>
 </div>
