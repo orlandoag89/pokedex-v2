@@ -1,78 +1,150 @@
-
-// .pokedex {
-//   width: 100%;
-//   &__container {
-//     width: 15%;
-//     margin: auto;
-//   }
-//   &__wizard {
-//     width: 100%;
-//     height: 10rem;
-//     background-color: var(--red);
-//     border: .1rem solid var(--dark-blue);
-//     &--top {
-//       border-radius: .8rem .8rem 0 0;
-//     }
-//     &--bottom {
-//       border-radius: 0 0 .8rem .8rem;
-//     }
-//   }
-//   &__button {
-//     width: 5rem;
-//     height: 5rem;
-//     border-radius: 100%;
-//     background-color: var(--dark-salmon);
-//     border: .1rem solid var(--dark-blue);
-//     position: absolute;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     cursor: pointer;
-//     color: var(--snow);
-//   }
-//   &__line {
-//     width: 95%;
-//     margin: auto;
-//     height: 5rem;
-//     border-bottom: .2rem solid var(--dark-blue);
-//   }
-//   &__controls {
-//     width: 80%;
-//     margin: auto;
-//     height: 12rem;
-//     border: 1rem solid var(--coral);
-//     background-color: var(--light-gray);
-//   }
-// }
-// .light{
-//   width: 0;
-//   height: 0;
-//   border: .5rem solid var(--gainsboro);
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   margin: auto;
-//   border-radius: 100%;
-//   margin-top: 1.5rem;
-//   &--shadow {
-//     box-shadow: 0 0 1.2rem var(--dark-red);
-//     border: .5rem solid var(--dark-red);
-//   }
-// }
-
-// .screen {
-//   &__figure {
-//     margin: 3rem auto 0 auto;
-//     width: 50%;
-//     height: 5rem;
-//     border: .1rem solid var(--lime-green);
-//     border-radius: .3rem;
-//     background-color: var(--hot-pink);
-//   }
-//   &__img {
-//     width: 100%;
-//     height: 100%;
-//   }
-//   figcaption {
-//     text-align: center;
-//   }
-// }
+.pokedex {
+  width: 100%;
+  &__button--main {
+    width: 75%;
+    height: 4rem;
+    margin: auto;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: #32CD32;
+    border: .15rem solid var(--black);
+  }
+  &__button--radius {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-color: var(--crimson);
+    cursor: pointer;
+  }
+  &__button--w2 {
+    width: 2rem;
+    height: 2rem;
+  }
+  &__button--w5 {
+    width: 5rem;
+    height: 5rem;
+  }
+  &__button--dark {
+    background-color: var(--black);
+  }
+  &__container {
+    width: 90%;
+    margin: auto;
+    border: .1rem solid var(--black);
+    border-radius: .8rem .2rem .2rem .8rem;
+    background-color: var(--red-rescue-team);
+  }
+  .poke-indicators {
+    border-bottom: .1rem solid var(--black);
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 1rem 1rem;
+    &__voice {
+      border: 0.1rem solid var(--black);
+      border-radius: 100%;
+      width: 3rem;
+      height: 3rem;
+      padding: 0.2rem;
+      background-color: var(--snow);
+    }
+    &__item-voice {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--deep-sky-blue);
+      border-radius: 100%;
+    }
+    &__ligths{
+      display: inline-flex;
+      gap: 1rem;
+    }
+    &__light-item {
+      width: 1.3rem;
+      height: 1.3rem;
+      border: 0.1rem solid var(--black);
+      border-radius: 100%;
+      display: block;
+      &--1 {
+        width: .5rem;
+        height: .5rem;
+        border: 0.1rem solid var(--black);
+        border-radius: 100%;
+        display: block;
+        background-color: var(--crimson);
+      }
+    }
+  }
+  .poke-console {
+    border: 0.1rem solid var(--black);
+    margin: .5rem;
+    padding: 1rem;
+    &__auxs {
+      height: 5rem;
+      width: 95%;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+    }
+    &__lines {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
+    }
+    &__item--line {
+      display: block;
+      width: 5rem;
+      height: .2rem;
+      border-radius: .1rem;
+      background-color: black;
+    }
+    &__item--w3 {
+      margin-top: .7rem;
+      width: 3rem;
+    }
+  }
+  .screen-content {
+    border: 0.1rem solid var(--black);
+    border-radius: .8rem;
+    background-color: var(--gainsboro);
+    &__points {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 1rem;
+      padding: .5rem 0;
+    }
+    .screen {
+      background-color: var(--dark-sea-green);
+      border: .1rem solid var(--dark-slategray);
+      width: 90%;
+      margin: 0 auto 1rem auto;
+      height: 20rem;
+      &__figure {
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+        padding: .5rem;
+        text-align: center;
+      }
+      &__img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .poke-controls {
+    display: flex;
+    padding-top: 1rem;
+    justify-content: space-evenly;
+    &__items {
+      display: flex;
+      justify-content: space-around;
+    }
+    &__buttons {
+      width: 50%;
+    }
+    &__main {
+      padding-top: 1rem;
+    }
+  }
+}

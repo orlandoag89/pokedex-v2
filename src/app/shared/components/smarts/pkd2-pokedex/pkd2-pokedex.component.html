@@ -1,22 +1,53 @@
 <div class="pokedex">
   <div class="pokedex__container">
-    <div class="pokedex__wizard pokedex__wizard--top">
-      <span class="light" [ngClass]="{'light--shadow': destello}"></span>
-      <div class="pokedex__line"></div>
-    </div>
-    <div >
-      <button class="pokedex__button" (click)="openScreen()">{{!showScreen ? texts.get(PokedexEnum.SEARCH) : texts.get(PokedexEnum.HIDDEN)}}</button>
-    </div>
-    <div *ngIf="showScreen" class="pokedex__controls">
-      <div class="screen">
-        <figure class="screen__figure">
-          <img [src]="currentPokemon.sprites.other.dream_world.front_default" [alt]="currentPokemon.name" class="screen__img">
-          <figcaption>{{currentPokemon.name}}</figcaption>
-        </figure>
+    <div class="poke-indicators">
+      <div class="poke-indicators__voice">
+        <span class="poke-indicators__item-voice"></span>
+      </div>
+      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
+      <div class="poke-indicators__ligths">
+        <span class="poke-indicators__light-item light--red"></span>
+        <span class="poke-indicators__light-item light--yellow"></span>
+        <span class="poke-indicators__light-item light--light"></span>
       </div>
     </div>
-    <div class="pokedex__wizard pokedex__wizard--bottom">
-      <div class="pokedex__line"></div>
+    <div class="poke-console">
+      <div class="screen-content">
+        <div class="screen-content__points">
+          <span class="poke-indicators__light-item--1"></span>
+          <span class="poke-indicators__light-item--1"></span>
+        </div>
+        <div class="screen">
+          <figure class="screen__figure" *ngIf="showScreen">
+            <img [src]="currentPokemon.sprites.other.dream_world.front_default" [alt]="currentPokemon.name" class="screen__img">
+            <figcaption>{{currentPokemon.name}}</figcaption>
+          </figure>
+        </div>
+      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
+        <div class="poke-console__auxs">
+          <button class="pokedex__button--radius"></button>
+          <div class="poke-console__lines">
+            <span class="poke-console__item--line"></span>
+            <span class="poke-console__item--line"></span>
+            <span class="poke-console__item--line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="poke-controls">
+        <div class="poke-controls__buttons">
+      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
+          <div class="poke-controls__items">
+            <button class="pokedex__button--radius pokedex__button--w2 pokedex__button--dark"></button>
+            <span class="poke-console__item--line poke-console__item--w3"></span>
+            <span class="poke-console__item--line poke-console__item--w3"></span>
+          </div>
+          <div class="poke-controls__main">
+            <button class="pokedex__button--main" (click)="openScreen()"></button>
+          </div>
+        </div>
+      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
+        <button class="pokedex__button--radius pokedex__button--dark pokedex__button--w5">On</button>
+      </div>
     </div>
   </div>
 </div>
