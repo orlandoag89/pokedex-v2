@@ -1,14 +1,13 @@
 <div class="pokedex">
   <div class="pokedex__container">
     <div class="poke-indicators">
-      <div class="poke-indicators__voice">
-        <span class="poke-indicators__item-voice"></span>
+      <div class="poke-indicators__voice" [ngClass]="{'poke-indicators__voice--shadow' : destello}">
+        <span class="poke-indicators__item-voice" [ngClass]="{'poke-indicators__item-voice--dark': destello}"></span>
       </div>
-      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
       <div class="poke-indicators__ligths">
-        <span class="poke-indicators__light-item light--red"></span>
-        <span class="poke-indicators__light-item light--yellow"></span>
-        <span class="poke-indicators__light-item light--green"></span>
+        <span class="poke-indicators__light-item light-red" [ngClass]="{'light-red--shadow': destello}"></span>
+        <span class="poke-indicators__light-item light-yellow" [ngClass]="{'light-yellow--shadow': destello}"></span>
+        <span class="poke-indicators__light-item light-green" [ngClass]="{'light-green--shadow': destello}"></span>
       </div>
     </div>
     <div class="poke-console">
@@ -23,9 +22,8 @@
             <figcaption>{{currentPokemon.name}}</figcaption>
           </figure>
         </div>
-      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
         <div class="poke-console__auxs">
-          <button class="pokedex__button--radius"></button>
+          <div class="pokedex__button--radius pokedex__button--no-click"></div>
           <div class="poke-console__lines">
             <span class="poke-console__item--line"></span>
             <span class="poke-console__item--line"></span>
@@ -35,9 +33,8 @@
       </div>
       <div class="poke-controls">
         <div class="poke-controls__buttons">
-      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
           <div class="poke-controls__items">
-            <button class="pokedex__button--radius pokedex__button--w2 pokedex__button--dark"></button>
+            <button class="pokedex__button--radius pokedex__button--w2 pokedex__button--dark pokedex__button--no-click"></button>
             <span class="poke-console__item--line poke-console__item--w3"></span>
             <span class="poke-console__item--line poke-console__item--w3"></span>
           </div>
@@ -45,7 +42,6 @@
             <button class="pokedex__button--main" (click)="openScreen()"></button>
           </div>
         </div>
-      <!-- QUITAR CUANDO SE HAGA PANTALLA PEQUEÑA -->
         <button class="pokedex__button--radius pokedex__button--dark pokedex__button--w5">On</button>
       </div>
     </div>

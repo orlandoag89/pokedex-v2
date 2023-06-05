@@ -1,6 +1,6 @@
 .home {
   width: 100%;
-  border: 1px solid green;
+  min-width: 37.5rem;
   display: flex;
   flex-flow: row nowrap;
   &__character {
@@ -8,5 +8,17 @@
   }
   &__pokedex {
     width: 50%;
+  }
+}
+@media (max-width: 740px) {
+  .home {
+    flex-flow: column nowrap;
+    &__character {
+      margin: auto;
+      padding-bottom: 2rem;
+    }
+    &__pokedex {
+      margin: auto;
+    }
   }
 }
