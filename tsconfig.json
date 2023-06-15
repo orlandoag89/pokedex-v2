@@ -32,6 +32,7 @@
       "@smarts-components": ["src/app/shared/components/smarts/index.ts"],
       "@dumbs-components": ["src/app/shared/components/dumb/index.ts"],
       "@shared/enums": ["src/app/shared/enums/index.ts"],
+      "@shared/directives": ["src/app/shared/directives/index.ts"],
       "@modules": ["src/app/module/index.ts"]
     }
   },

@@ -1,6 +1,7 @@
 .pokedex {
   max-width: 30rem;
   margin: auto;
+  --height-20-rem: 20rem;
   .light {
     &-red {
       background-color: var(--dark-red);
@@ -157,7 +158,7 @@
       border: .1rem solid var(--dark-slategray);
       width: 90%;
       margin: 0 auto 1rem auto;
-      height: 20rem;
+      height: var(--height-20-rem);
       box-shadow: inset -.1rem -.1rem black;
       &__figure {
         width: 80%;
@@ -189,6 +190,9 @@
   }
 }
 @media (max-width: 740px) {
+  .pokedex {
+    --height-20-rem: 10rem;
+  }
   .poke-indicators__ligths {
     position: absolute;
     z-index: -500;

@@ -1,22 +1,15 @@
 .character {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
+  background-color: var(--dark);
   &__img-content {
-    width: 100%;
+    width: 50%;
     height: 100%;
     margin: auto;
+    padding: 0 2rem;
     &--shadow {
-      background: rgb(2,0,36);
-      background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,37,1) 35%, rgba(205,217,219,1) 100%);
-      color: var(--gold);
-    }
-    &--shadow::after {
-      content: "¿¿??";
-      font-size: 2rem;
-      display: inline;
-      position: fixed;
-      top: 23%;
-      left: 20%;
+      background: var(--dark);
+      background: var(--backgroud-radial-dark);
     }
   }
   &__img {
