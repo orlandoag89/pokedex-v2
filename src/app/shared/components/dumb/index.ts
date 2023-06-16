@@ -1,2 +1,2 @@
-export * from './pkd2-spinner/index';
-export * from './pkd2-character/index';
+export * from './poke-spinner/index';
+export * from './poke-character/index';

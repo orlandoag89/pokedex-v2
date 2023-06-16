@@ -11,12 +11,10 @@ import { HomeModule } from '@modules';
 import { ROOT_REDUCER } from './module/core/state/app.state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { Pkd2DialogComponent } from './shared/components/dumb/pkd2-dialog/pkd2-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Pkd2DialogComponent
+    AppComponent
   ],
   imports: [
     HomeModule,
