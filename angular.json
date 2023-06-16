@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "pkd2",
+      "prefix": "poke",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
