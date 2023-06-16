@@ -3,9 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
-import { PokeApiService, PokemonModel } from "@core/services";
+import { PokeApiService, PokeDialogService, PokemonModel } from "@core/services";
 import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon } from "@core/state";
-import { PokeDialogService } from "@shared/services";
 
 export abstract class BaseFacade {
 

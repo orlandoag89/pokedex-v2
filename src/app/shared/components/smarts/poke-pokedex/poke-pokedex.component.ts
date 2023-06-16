@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { PokemonModel } from '@core/services';
-import { PokedexEnum } from '@shared/enums';
 import { interval, takeWhile } from 'rxjs';
 
 @Component({
@@ -17,7 +16,6 @@ export class PokePokedexComponent {
   
   public showScreen: boolean = false;
   public destello: boolean = false;
-  public PokedexEnum = PokedexEnum;
   public status = true;
 
   private _c = 0;

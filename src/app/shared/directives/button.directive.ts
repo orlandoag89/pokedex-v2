@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2, inject } from '@angular/core';
-import { PokeEventsEnum } from '../enums/poke-events.enum';
+import { PokeEventsEnum } from '@shared/enums';
 import { Subject, fromEvent, takeUntil } from 'rxjs';
 @Directive({
   selector: '[poke-button]'

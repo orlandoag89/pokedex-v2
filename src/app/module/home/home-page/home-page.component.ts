@@ -16,7 +16,6 @@ export class HomePageComponent implements OnInit {
   public traduction: Map<string, string>;
 
   private _facade: HomeFacade = inject(HomeFacade);
-  private _vr: ViewContainerRef = inject(ViewContainerRef);
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
