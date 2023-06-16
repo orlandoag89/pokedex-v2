@@ -4,11 +4,11 @@ import { PokedexEnum } from '@shared/enums';
 import { interval, takeWhile } from 'rxjs';
 
 @Component({
-  selector: 'pkd2-pokedex',
-  templateUrl: './pkd2-pokedex.component.html',
-  styleUrls: ['./pkd2-pokedex.component.scss']
+  selector: 'poke-pokedex',
+  templateUrl: './poke-pokedex.component.html',
+  styleUrls: ['./poke-pokedex.component.scss']
 })
-export class Pkd2PokedexComponent {
+export class PokePokedexComponent {
 
   @Input() texts: Map<string, string>;
   @Input() currentPokemon: PokemonModel;

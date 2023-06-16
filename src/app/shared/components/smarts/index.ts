@@ -1,1 +1,1 @@
-export * from './pkd2-pokedex/index';
+export * from './poke-pokedex/index';
