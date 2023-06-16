@@ -4,7 +4,7 @@
 <ng-container *ngIf="pokemonRandom$|async as p">
   <div class="home">
     <div class="home__character">
-      <pkd2-character [pokemon]="p" [showing]="showPokemon"></pkd2-character>
+      <poke-character [pokemon]="p" [showing]="showPokemon"></poke-character>
     </div>
     <div class="home__pokedex">
       <pkd2-pokedex [texts]="traduction" [currentPokemon]="p" (capture)="showCurrenPokemon()"></pkd2-pokedex>

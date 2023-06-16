@@ -1,2 +1,2 @@
-export * from './pkd2-character.component';
-export * from './pkd2-character.module';
+export * from './poke-character.component';
+export * from './poke-character.module';
