@@ -16,14 +16,14 @@
           <span class="poke-indicators__light-item--1"></span>
           <span class="poke-indicators__light-item--1"></span>
         </div>
-        <div class="screen">
-          <figure class="screen__figure" *ngIf="showScreen">
+        <div class="screen" [ngStyle]="{backgroundColor: status?'var(--dark-sea-green)': 'var(--lightslategray)'}">
+          <figure class="screen__figure" *ngIf="showScreen && status">
             <img [src]="currentPokemon.sprites.other.dream_world.front_default" [alt]="currentPokemon.name" class="screen__img">
             <figcaption>{{currentPokemon.name}}</figcaption>
           </figure>
         </div>
         <div class="poke-console__auxs">
-          <div class="pokedex__button--radius pokedex__button--no-click"></div>
+          <div class="pokedex__button--radius pokedex__button--no-click" [ngStyle]="{backgroundColor:status?'var(--lime-green)':'var(--orange-red)'}"></div>
           <div class="poke-console__lines">
             <span class="poke-console__item--line"></span>
             <span class="poke-console__item--line"></span>
@@ -39,10 +39,14 @@
             <span class="poke-console__item--line poke-console__item--w3"></span>
           </div>
           <div class="poke-controls__main">
-            <button poke-button class="pokedex__button--main" (click)="openScreen()"></button>
+            <button poke-button class="pokedex__button--main" (click)="openScreen()" [disabled]="!status"></button>
           </div>
         </div>
-        <button class="pokedex__button--radius pokedex__button--dark pokedex__button--w5">On</button>
+        <button
+          poke-button
+          [lightMode]="true"
+          class="pokedex__button--radius pokedex__button--dark pokedex__button--w5"
+          (click)="turnOffPokedex()" [innerHTML]="status?'OFF':'ON'"></button>
       </div>
     </div>
   </div>

@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
   --crimson: #DC143C;
   --indian-red: #CD5C5C;
   --light-coral: #F08080;
@@ -63,7 +69,11 @@
   --backgroud-radial-dark: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,37,1) 35%, rgba(205,217,219,1) 100%);
   --dark: rgb(2,0,36);
 
-  .poke-general-shadow {
-    box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, .6);
+  .poke-general-shadow--dark {
+    box-shadow: inset 0 0 1.5rem .5rem rgba(0, 0, 0, .6);
+  }
+
+  .poke-general-shadow--light {
+    box-shadow: inset 0 0 1.5rem .5rem rgba(255, 255, 255, 0.6);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { PokemonModel } from '@core/services';
 import { PokedexEnum } from '@shared/enums';
 import { interval, takeWhile } from 'rxjs';
@@ -18,6 +18,7 @@ export class Pkd2PokedexComponent {
   public showScreen: boolean = false;
   public destello: boolean = false;
   public PokedexEnum = PokedexEnum;
+  public status = true;
 
   private _c = 0;
 
@@ -31,4 +32,10 @@ export class Pkd2PokedexComponent {
       this._c++;
     });
   }
+
+  turnOffPokedex():void {
+    this.status = !this.status;
+    this._c = 40;
+  }
+
 }
