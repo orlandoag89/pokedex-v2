@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ViewContainerRef } from "@angular/core";
 import { BaseFacade } from "@core/base-facade";
 import { PokemonModel } from "@core/services";
 import { ValuesKeys } from "./enums/values.keys";

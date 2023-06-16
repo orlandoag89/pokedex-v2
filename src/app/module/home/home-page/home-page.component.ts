@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
 import { Observable, interval, take } from 'rxjs';
 import { PokemonModel } from '@core/services';
@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
   public traduction: Map<string, string>;
 
   private _facade: HomeFacade = inject(HomeFacade);
+  private _vr: ViewContainerRef = inject(ViewContainerRef);
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();

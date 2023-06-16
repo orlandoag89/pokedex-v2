@@ -1,16 +1,18 @@
-import { inject } from "@angular/core";
+import { ViewContainerRef, inject } from "@angular/core";
 import { Store } from '@ngrx/store';
 import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
 import { PokeApiService, PokemonModel } from "@core/services";
 import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon } from "@core/state";
+import { PokeDialogService } from "@shared/services";
 
 export abstract class BaseFacade {
 
   protected readonly translation: TranslatorService = inject(TranslatorService);
   private readonly _store: Store = inject(Store<any>);
   private readonly _pokeApi: PokeApiService = inject(PokeApiService);
+  private readonly _dialog: PokeDialogService = inject(PokeDialogService);
   
   abstract initTranslate(): Map<string,string>;
 

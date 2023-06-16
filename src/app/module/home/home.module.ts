@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { PokeApiService } from "@core/services";
-import { PokeCharacterModule, PokeSpinnerModule } from "@dumbs-components";
+import { PokeCharacterModule, PokeDialogModule, PokeSpinnerModule } from "@dumbs-components";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { PokePokedexModule } from "@smarts-components";
 
@@ -11,10 +11,8 @@ import { PokePokedexModule } from "@smarts-components";
     CommonModule,
     PokeCharacterModule,
     PokeSpinnerModule,
-    PokePokedexModule
-  ],
-  providers: [
-    PokeApiService
+    PokePokedexModule,
+    PokeDialogModule
   ],
   exports: [HomePageComponent]
 })
