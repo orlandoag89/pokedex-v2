@@ -1,16 +1,16 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, AfterContentInit, AfterViewInit } from '@angular/core';
 import { PokemonModel } from '@core/services';
-import { interval, takeWhile } from 'rxjs';
+import { Observable, Subject, interval, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'poke-pokedex',
   templateUrl: './poke-pokedex.component.html',
   styleUrls: ['./poke-pokedex.component.scss']
 })
-export class PokePokedexComponent {
+export class PokePokedexComponent implements AfterViewInit {
 
-  @Input() texts: Map<string, string>;
-  @Input() currentPokemon: PokemonModel;
+  public data: any;
+  public currentPokemon$: Subject<PokemonModel>;
   
   @Output() private capture = new EventEmitter<void>();
   
@@ -19,6 +19,10 @@ export class PokePokedexComponent {
   public status = true;
 
   private _c = 0;
+
+  ngAfterViewInit(): void {
+    this.currentPokemon$ = this.data.pokemon;
+  }
 
   openScreen(): void {
     this.capture.emit();

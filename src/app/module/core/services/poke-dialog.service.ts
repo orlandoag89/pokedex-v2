@@ -1,10 +1,23 @@
-import { Injectable, ViewContainerRef, inject } from "@angular/core";
-import { PokeDialogComponent } from "../../../shared/components/dumb/poke-dialog";
+import { Injectable, Type, ViewContainerRef } from "@angular/core";
+import { PokeDialogComponent } from "@dumbs-components";
 
 @Injectable()
 export class PokeDialogService {
 
-  public open(viewContainerRef: ViewContainerRef) {
-    viewContainerRef.createComponent(PokeDialogComponent);
+  private _viewContainerRef: ViewContainerRef;
+
+  set viewContainerRef(v: ViewContainerRef) {
+    this._viewContainerRef = v;
+  }
+
+  openDialog(type: 'dialog', element: Type<unknown>, options?:Object) {
+    if (type === 'dialog') {
+      const dialog = this._viewContainerRef.createComponent(PokeDialogComponent);
+      const {instance} = dialog;
+      instance.element = element;
+      if (options) {
+        instance.options=options;
+      }
+    }
   }
 }

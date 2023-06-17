@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewContainerRef, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
 import { Observable, interval, take } from 'rxjs';
 import { PokemonModel } from '@core/services';
+import { PokePokedexComponent } from '@smarts-components';
 
 @Component({
   selector: 'pkd2-home-page',
@@ -22,6 +23,7 @@ export class HomePageComponent implements OnInit {
     this._facade.retrievePokemons().subscribe();
     this.loading$ = this._facade.getLoading();
     this.pokemonRandom$ = this._facade.getRandomPokemon();
+    this._facade.openDialog('dialog', PokePokedexComponent, {pokemon: this.pokemonRandom$});
   }
 
   showCurrenPokemon() {

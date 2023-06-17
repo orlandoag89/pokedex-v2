@@ -1,4 +1,4 @@
-import { ViewContainerRef, inject } from "@angular/core";
+import { Type, ViewContainerRef, inject } from "@angular/core";
 import { Store } from '@ngrx/store';
 import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
@@ -14,6 +14,14 @@ export abstract class BaseFacade {
   private readonly _dialog: PokeDialogService = inject(PokeDialogService);
   
   abstract initTranslate(): Map<string,string>;
+
+  setViewContainerRef(v: ViewContainerRef) {
+    this._dialog.viewContainerRef = v;
+  }
+
+  openDialog(type: 'dialog', element: Type<unknown>, options?: Object) {
+    this._dialog.openDialog(type, element, options);
+  }
 
   public retrievePokemons(): Observable<void> {
     this._dispatch(initLoader())

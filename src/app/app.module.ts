@@ -12,6 +12,7 @@ import { HomeModule } from '@modules';
 import { ROOT_REDUCER } from './module/core/state/app.state';
 import { environment } from 'src/environments/environment';
 import { PokeDialogService } from '@core/services';
+import { RootModule } from './module/root';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PokeDialogService } from '@core/services';
   ],
   imports: [
     HomeModule,
+    RootModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

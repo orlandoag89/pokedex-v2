@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Type, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'poke-dialog',
   templateUrl: './poke-dialog.component.html',
   styleUrls: ['./poke-dialog.component.scss']
 })
-export class PokeDialogComponent implements OnInit {
+export class PokeDialogComponent implements AfterViewInit {
 
-  constructor() { }
+  @ViewChild('dialogContent', {read: ViewContainerRef }) 
+  private dialogContent!:ViewContainerRef;
 
-  ngOnInit(): void {
+  public element: Type<unknown>;
+  public options: Object;
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const _element = this.dialogContent.createComponent(this.element) as any;
+      if (this.options) {
+        _element.instance.data = this.options
+      }
+    });
   }
-
 }
