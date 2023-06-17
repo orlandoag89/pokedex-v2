@@ -2,7 +2,7 @@
   <article class="dialog">
     <header class="dialog__header">
       <h1 class="dialog__title">Titulo</h1>
-      <button class="dialog__close-button">Cerrar</button>
+      <button class="dialog__close-button" (click)="close$.next();">Cerrar</button>
     </header>
     <main class="dialog__content">
       <ng-template #dialogContent></ng-template>

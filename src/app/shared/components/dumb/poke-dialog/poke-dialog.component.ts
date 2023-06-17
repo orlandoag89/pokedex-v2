@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { Observable, Subject, take } from 'rxjs';
 
 @Component({
   selector: 'poke-dialog',
@@ -12,6 +13,7 @@ export class PokeDialogComponent implements AfterViewInit {
 
   public element: Type<unknown>;
   public options: Object;
+  public close$ = new Subject<void>();
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -21,4 +23,6 @@ export class PokeDialogComponent implements AfterViewInit {
       }
     });
   }
+
+
 }

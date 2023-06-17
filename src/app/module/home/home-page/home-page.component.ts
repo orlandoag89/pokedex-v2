@@ -23,7 +23,9 @@ export class HomePageComponent implements OnInit {
     this._facade.retrievePokemons().subscribe();
     this.loading$ = this._facade.getLoading();
     this.pokemonRandom$ = this._facade.getRandomPokemon();
-    this._facade.openDialog('dialog', PokePokedexComponent, {pokemon: this.pokemonRandom$});
+    this._facade.dialog('dialog', PokePokedexComponent, {pokemon: this.pokemonRandom$}, () => {
+      console.log(1)
+    });
   }
 
   showCurrenPokemon() {

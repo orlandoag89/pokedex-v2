@@ -10,11 +10,17 @@ export class PokeDialogService {
     this._viewContainerRef = v;
   }
 
-  openDialog(type: 'dialog', element: Type<unknown>, options?:Object) {
+  dialog(type: 'dialog', element: Type<unknown>, options?:Object, afterClose?: () => void) {
     if (type === 'dialog') {
       const dialog = this._viewContainerRef.createComponent(PokeDialogComponent);
       const {instance} = dialog;
       instance.element = element;
+      instance.close$.subscribe(() => {
+        if (afterClose) {
+          afterClose();
+        }
+        this._viewContainerRef.clear();
+      });
       if (options) {
         instance.options=options;
       }
