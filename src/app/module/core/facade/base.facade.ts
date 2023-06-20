@@ -19,8 +19,8 @@ export abstract class BaseFacade {
     this._dialog.viewContainerRef = v;
   }
 
-  dialog(type: 'dialog', element: Type<unknown>, options?: Object, afterClose?: () => void) {
-    this._dialog.dialog(type, element, options, afterClose);
+  dialog(type: 'dialog', element: Type<unknown>, options?: Object, afterClose?: () => void, click?: () => void) {
+    this._dialog.dialog(type, element, options, afterClose, click);
   }
 
   public retrievePokemons(): Observable<void> {

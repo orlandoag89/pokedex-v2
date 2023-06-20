@@ -13,16 +13,18 @@ export class PokeDialogComponent implements AfterViewInit {
 
   public element: Type<unknown>;
   public options: Object;
-  public close$ = new Subject<void>();
+  public onClose$ = new Subject<void>();
+  public onClick$ = new Subject<void>();
 
   ngAfterViewInit(): void {
     setTimeout(() => {
       const _element = this.dialogContent.createComponent(this.element) as any;
+      // if (_element.instance.event$) {
+        _element.instance.event$ = this.onClick$;
+      // }
       if (this.options) {
         _element.instance.data = this.options
       }
     });
   }
-
-
 }

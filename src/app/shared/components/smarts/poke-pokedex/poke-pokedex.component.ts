@@ -10,10 +10,9 @@ import { Observable, Subject, interval, takeWhile } from 'rxjs';
 export class PokePokedexComponent implements AfterViewInit {
 
   public data: any;
+  public event$: Subject<void>;
   public currentPokemon$: Subject<PokemonModel>;
-  
-  @Output() private capture = new EventEmitter<void>();
-  
+    
   public showScreen: boolean = false;
   public destello: boolean = false;
   public status = true;
@@ -25,7 +24,7 @@ export class PokePokedexComponent implements AfterViewInit {
   }
 
   openScreen(): void {
-    this.capture.emit();
+    this.event$.next();
     this.showScreen = !this.showScreen;
     interval(200).pipe(
       takeWhile(() => this.showScreen && this._c <= 39)
