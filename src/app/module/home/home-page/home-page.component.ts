@@ -23,12 +23,15 @@ export class HomePageComponent implements OnInit {
     this._facade.retrievePokemons().subscribe();
     this.loading$ = this._facade.getLoading();
     this.pokemonRandom$ = this._facade.getRandomPokemon();
-    this._facade.dialog('dialog', PokePokedexComponent, {pokemon: this.pokemonRandom$}, undefined, () => {
-      interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = true)
-    });
   }
 
-  showCurrenPokemon() {
-    interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = true);
+  openPokedex(): void {
+    this._facade.dialog(
+      'dialog',
+      PokePokedexComponent,
+      {pokemon: this.pokemonRandom$},
+      undefined, 
+      () => interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = true)
+    );
   }
 }

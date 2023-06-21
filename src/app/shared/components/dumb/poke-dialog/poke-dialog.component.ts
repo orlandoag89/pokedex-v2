@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, Type, ViewChild, ViewContainerRef } from '@angular/core';
-import { Observable, Subject, take } from 'rxjs';
+import { AfterViewInit, Component, Type, ViewChild, ViewContainerRef, inject, ChangeDetectorRef } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'poke-dialog',
@@ -11,6 +11,8 @@ export class PokeDialogComponent implements AfterViewInit {
   @ViewChild('dialogContent', {read: ViewContainerRef }) 
   private dialogContent!:ViewContainerRef;
 
+  private cdref: ChangeDetectorRef = inject(ChangeDetectorRef)
+
   public element: Type<unknown>;
   public options: Object;
   public onClose$ = new Subject<void>();
@@ -19,12 +21,11 @@ export class PokeDialogComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       const _element = this.dialogContent.createComponent(this.element) as any;
-      // if (_element.instance.event$) {
-        _element.instance.event$ = this.onClick$;
-      // }
+      _element.instance.event$ = this.onClick$;
       if (this.options) {
         _element.instance.data = this.options
       }
+      this.cdref.detectChanges();
     });
   }
 }

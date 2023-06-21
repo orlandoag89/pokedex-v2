@@ -6,8 +6,6 @@
     <div class="home__character">
       <poke-character [pokemon]="p" [showing]="showPokemon"></poke-character>
     </div>
-    <div class="home__pokedex">
-      <!-- <poke-pokedex [texts]="traduction" [currentPokemon]="p" (capture)="showCurrenPokemon()"></poke-pokedex> -->
-    </div>
+    <button (click)="openPokedex()">Abrir modal</button>
   </div>
 </ng-container>

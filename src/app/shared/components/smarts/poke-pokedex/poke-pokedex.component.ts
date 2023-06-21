@@ -1,6 +1,6 @@
-import { Component, Output, EventEmitter, Input, AfterContentInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { PokemonModel } from '@core/services';
-import { Observable, Subject, interval, takeWhile } from 'rxjs';
+import { Subject, interval, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'poke-pokedex',

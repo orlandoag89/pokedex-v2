@@ -1,7 +1,7 @@
 .pokedex {
   max-width: 30rem;
   margin: auto;
-  --height-20-rem: 20rem;
+  --height-20-rem: 5rem;
   .light {
     &-red {
       background-color: var(--dark-red);
@@ -187,7 +187,7 @@
     }
   }
 }
-@media (max-width: 740px) {
+@media (max-width: 30rem) {
   .pokedex {
     --height-20-rem: 10rem;
   }
