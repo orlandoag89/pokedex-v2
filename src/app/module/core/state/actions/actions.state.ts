@@ -20,3 +20,7 @@ export const actionSaveCurrentPokemon = createAction(
   '[Save Pkemon] Save Current Pokemon',
   props<{ currentPokemon: PokemonModel }>()
 );
+
+export const switchPokeConsole = createAction(
+  '[On Off] Toggle console'
+);

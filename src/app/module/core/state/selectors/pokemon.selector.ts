@@ -13,3 +13,8 @@ export const selectorPokemons = createSelector(
   selectorPokemonInfo,
   (state: IPokemon) => state.pokemons
 );
+
+export const selectorConsoleStatus = createSelector(
+  selectorPokemonInfo,
+  (state: IPokemon) => state.consoleStatus
+);

@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable, interval, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { PokemonModel } from '@core/services';
-import { PokePokedexComponent } from '@smarts-components';
+import { PokePokedexComponent, PokePokedexEnum } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
 @Component({
   selector: 'pkd2-home-page',
@@ -20,8 +20,8 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
-    this._facade.retrievePokemons().subscribe();
-    this.loading$ = this._facade.getLoading();
+    this._facade.retrievePokemons$().subscribe();
+    this.loading$ = this._facade.getLoading$();
     this.pokemonRandom$ = this._facade.getRandomPokemon();
   }
 
@@ -30,10 +30,18 @@ export class HomePageComponent implements OnInit {
       this.traduction.get(ValuesKeys.POKEDEX)!,
       'dialog',
       PokePokedexComponent,
-      {pokemon: this.pokemonRandom$},
+      {
+        pokemon: this.pokemonRandom$,
+        isActive$: this._facade.pokeConsoleStatus$()
+      },
       undefined, 
-      (arg?:any) => {
-        console.log(arg);
+      (arg:PokePokedexEnum) => {
+        if (arg === PokePokedexEnum.SHOW_POKEMON) {
+          this.showPokemon = true
+        }
+        if (arg === PokePokedexEnum.ON_OFF) {
+          this._facade.toggleConsoleStatus();
+        }
       }
     );
   }

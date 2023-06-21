@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { IPokemon } from "../interfaces/pokemon.interface";
-import { actionSaveCurrentPokemon, finishLoader, initLoader, loadPokemons } from '../actions/actions.state';
+import { actionSaveCurrentPokemon, finishLoader, initLoader, loadPokemons, switchPokeConsole } from '../actions/actions.state';
 
 const initialState: IPokemon = {
   loading: false,
   pokemons: [],
-  currentPokemon: undefined
+  currentPokemon: undefined,
+  consoleStatus: false
 }
 
 export const pokemonsReducer = createReducer(initialState,
@@ -34,6 +35,14 @@ export const pokemonsReducer = createReducer(initialState,
     return {
       ...state,
       currentPokemon
+    }
+  }),
+  on(switchPokeConsole, (state) => {
+    const copyState = {...state};
+    copyState.consoleStatus = !copyState.consoleStatus;
+    return {
+      ...state,
+      consoleStatus: copyState.consoleStatus
     }
   })
 );

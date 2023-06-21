@@ -4,7 +4,7 @@ import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
 import { PokeApiService, PokeDialogService, PokemonModel } from "@core/services";
-import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon } from "@core/state";
+import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon, switchPokeConsole, selectorConsoleStatus } from "@core/state";
 
 export abstract class BaseFacade {
 
@@ -19,7 +19,7 @@ export abstract class BaseFacade {
     this._dialog.viewContainerRef = v;
   }
 
-  dialog(
+  public dialog(
     title:string, 
     type: 'dialog', 
     element: Type<unknown>, 
@@ -30,7 +30,7 @@ export abstract class BaseFacade {
     this._dialog.dialog(title, type, element, options, afterClose, click);
   }
 
-  public retrievePokemons(): Observable<void> {
+  public retrievePokemons$(): Observable<void> {
     this._dispatch(initLoader())
     return this._pokeApi.geAlltPokemons().pipe(
       switchMap(v => v.results),
@@ -41,12 +41,20 @@ export abstract class BaseFacade {
     );
   }
 
-  public getLoading(): Observable<boolean> {
-    return this._select<boolean>(loaderSelector);
+  public toggleConsoleStatus(): void {
+    return this._dispatch(switchPokeConsole());
   }
 
-  public getPokemons(): Observable<PokemonModel[]> {
-    return this._select<PokemonModel[]>(selectorPokemons);
+  public pokeConsoleStatus$(): Observable<boolean> {
+    return this._select$<boolean>(selectorConsoleStatus);
+  }
+
+  public getLoading$(): Observable<boolean> {
+    return this._select$<boolean>(loaderSelector);
+  }
+
+  public getPokemons$(): Observable<PokemonModel[]> {
+    return this._select$<PokemonModel[]>(selectorPokemons);
   }
 
   public setPokemon(p: PokemonModel):void {
@@ -57,7 +65,7 @@ export abstract class BaseFacade {
     this._store.dispatch(action);
   }
 
-  private _select<T>(selector:any):Observable<T> {
+  private _select$<T>(selector:any):Observable<T> {
     return this._store.select(selector);
   }
 }
