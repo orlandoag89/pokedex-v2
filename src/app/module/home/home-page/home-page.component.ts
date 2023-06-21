@@ -3,7 +3,7 @@ import { HomeFacade } from '../home.facade';
 import { Observable, interval, take } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokePokedexComponent } from '@smarts-components';
-
+import {ValuesKeys} from './../enums/values.keys';
 @Component({
   selector: 'pkd2-home-page',
   templateUrl: './home-page.component.html',
@@ -27,11 +27,14 @@ export class HomePageComponent implements OnInit {
 
   openPokedex(): void {
     this._facade.dialog(
+      this.traduction.get(ValuesKeys.POKEDEX)!,
       'dialog',
       PokePokedexComponent,
       {pokemon: this.pokemonRandom$},
       undefined, 
-      () => interval(2000).pipe(take(1)).subscribe(() => this.showPokemon = true)
+      (arg?:any) => {
+        console.log(arg);
+      }
     );
   }
 }

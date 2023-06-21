@@ -1,8 +1,7 @@
 {
   "PAGE__home": {
-    "PROP__hello": "Hola",
-    "PROP__world": "Mundo",
     "PROP__search": "Ver",
-    "PROP__hidden": "Ocultar"
+    "PROP__hidden": "Ocultar",
+    "PROP__pokedex": "pokedex"
   }
 }

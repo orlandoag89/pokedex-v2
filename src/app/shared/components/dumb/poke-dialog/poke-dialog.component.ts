@@ -14,9 +14,10 @@ export class PokeDialogComponent implements AfterViewInit {
   private cdref: ChangeDetectorRef = inject(ChangeDetectorRef)
 
   public element: Type<unknown>;
+  public title: string;
   public options: Object;
   public onClose$ = new Subject<void>();
-  public onClick$ = new Subject<void>();
+  public onClick$ = new Subject<any>();
 
   ngAfterViewInit(): void {
     setTimeout(() => {
