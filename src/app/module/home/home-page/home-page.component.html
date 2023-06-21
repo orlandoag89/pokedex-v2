@@ -6,6 +6,8 @@
     <div class="home__character">
       <poke-character [pokemon]="p" [showing]="showPokemon"></poke-character>
     </div>
-    <button (click)="openPokedex()">Abrir modal</button>
+    <div class="home__controls">
+      <button class="home__open-button" poke-button (click)="openPokedex()">Abrir modal</button>
+    </div>
   </div>
 </ng-container>

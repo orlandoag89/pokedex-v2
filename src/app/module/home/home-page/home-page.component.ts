@@ -22,7 +22,8 @@ export class HomePageComponent implements OnInit {
     this.traduction=this._facade.initTranslate();
     this._facade.retrievePokemons$().subscribe();
     this.loading$ = this._facade.getLoading$();
-    this.pokemonRandom$ = this._facade.getRandomPokemon();
+    this.pokemonRandom$ = this._facade.getRandomPokemon$();
+    this.openPokedex();
   }
 
   openPokedex(): void {
@@ -31,7 +32,7 @@ export class HomePageComponent implements OnInit {
       'dialog',
       PokePokedexComponent,
       {
-        pokemon: this.pokemonRandom$,
+        pokemon$: this.pokemonRandom$,
         isActive$: this._facade.pokeConsoleStatus$()
       },
       undefined, 

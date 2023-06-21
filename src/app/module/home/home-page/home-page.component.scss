@@ -1,24 +1,19 @@
-// .home {
-//   width: 100%;
-//   min-width: 37.5rem;
-//   display: flex;
-//   flex-flow: row nowrap;
-//   &__character {
-//     width: 50%;
-//   }
-//   &__pokedex {
-//     width: 50%;
-//   }
-// }
-// @media (max-width: 740px) {
-//   .home {
-//     flex-flow: column nowrap;
-//     &__character {
-//       margin: auto;
-//       padding-bottom: 2rem;
-//     }
-//     &__pokedex {
-//       margin: auto;
-//     }
-//   }
-// }
+.home {
+  &__character {
+    padding: .5rem;
+    border-bottom: .1rem solid var(--silver);
+  }
+  &__controls {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+  }
+  &__open-button {
+    padding: .8rem;
+    border-radius: .8rem;
+    border: .1rem solid var(--dark-blue);
+    background-color: var(--gold);
+    color: var(--dark-blue);
+  }
+}

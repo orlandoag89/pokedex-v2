@@ -12,13 +12,13 @@ export class HomeFacade extends BaseFacade {
     return this.translation.doTranslate('home', Object.values(ValuesKeys));
   }
 
-  public getRandomPokemon():Observable<PokemonModel> {
+  public getRandomPokemon$():Observable<PokemonModel> {
     const indexRandom = Math.round(Math.random() * HomeEnum.LIMIT_RANDOM);
-    return this.getLoading().pipe(
+    return this.getLoading$().pipe(
       map(l => l),
       switchMap(lr => {
         if (!lr) {
-          return this.getPokemons();
+          return this.getPokemons$();
         }
         return EMPTY;
       }),
