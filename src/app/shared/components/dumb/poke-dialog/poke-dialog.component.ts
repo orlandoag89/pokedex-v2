@@ -22,7 +22,7 @@ export class PokeDialogComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       const _element = this.dialogContent.createComponent(this.element) as any;
-      _element.instance.event$ = this.onClick$;
+      _element.instance.onClick$ = this.onClick$;
       if (this.options) {
         _element.instance.data = this.options
       }

@@ -1,7 +1,6 @@
 {
   "PAGE__home": {
-    "PROP__search": "Ver",
-    "PROP__hidden": "Ocultar",
-    "PROP__pokedex": "pokedex"
+    "PROP__pokedex": "Pokedex",
+    "PROP__open_pokedex": "Abrir Pokedex"
   }
 }

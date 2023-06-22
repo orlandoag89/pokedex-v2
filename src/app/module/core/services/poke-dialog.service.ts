@@ -10,14 +10,14 @@ export class PokeDialogService {
     this._viewContainerRef = v;
   }
 
-  dialog(
+  public dialog<T>(
     title: string, 
     type: 'dialog', 
     element: Type<unknown>, 
     options?:Object, 
-    afterClose?: () => void, 
-    click?: (arg?:any) => void
-  ) {
+    click?: (arg?:T) => void,
+    afterClose?: () => void,
+  ):void {
     if (type === 'dialog') {      
       const dialog = this._viewContainerRef.createComponent(PokeDialogComponent);
       const {instance} = dialog;
@@ -29,7 +29,7 @@ export class PokeDialogService {
         }
         this._viewContainerRef.clear();
       });
-      instance.onClick$.subscribe((v?: any) => {
+      instance.onClick$.subscribe((v?: T) => {
         if (click) {
           click(v);
         }

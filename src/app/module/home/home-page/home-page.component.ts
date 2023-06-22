@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
 import { Observable } from 'rxjs';
 import { PokemonModel } from '@core/services';
-import { PokeConsoleComponent, PokePokedexComponent, PokePokedexEnum } from '@smarts-components';
+import { PokeConsoleComponent, PokeConsoleEnum, } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
 @Component({
   selector: 'pkd2-home-page',
@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   public pokemonRandom$: Observable<PokemonModel>;
   public showPokemon:boolean;
   public traduction: Map<string, string>;
+  public ValuesKeys = ValuesKeys;
 
   private _facade: HomeFacade = inject(HomeFacade);
 
@@ -23,35 +24,24 @@ export class HomePageComponent implements OnInit {
     this._facade.retrievePokemons$().subscribe();
     this.loading$ = this._facade.getLoading$();
     this.pokemonRandom$ = this._facade.getRandomPokemon$();
-    this._facade.dialog(
-      this.traduction.get(ValuesKeys.POKEDEX)!,
+  }
+
+  public openPokeConsole():void {
+    this._facade.dialog<PokeConsoleEnum>(
+      this.traduction.get(this.ValuesKeys.POKEDEX)!,
       'dialog',
       PokeConsoleComponent,
       {
         pokemon$: this.pokemonRandom$,
-        isActive$: this._facade.pokeConsoleStatus$()
+        isActive$: this._facade.pokeConsoleStatus$(),
+        showing: this.showPokemon
       },
+      args => {
+        if (args === PokeConsoleEnum.SHOW_POKEMON) {
+          this.showPokemon = true;
+        }
+      }
     )
   }
 
-  openPokedex(): void {
-    this._facade.dialog(
-      this.traduction.get(ValuesKeys.POKEDEX)!,
-      'dialog',
-      PokeConsoleComponent,
-      {
-        pokemon$: this.pokemonRandom$,
-        isActive$: this._facade.pokeConsoleStatus$()
-      },
-      undefined, 
-      (arg:PokePokedexEnum) => {
-        if (arg === PokePokedexEnum.SHOW_POKEMON) {
-          this.showPokemon = true
-        }
-        if (arg === PokePokedexEnum.ON_OFF) {
-          this._facade.toggleConsoleStatus();
-        }
-      }
-    );
-  }
 }

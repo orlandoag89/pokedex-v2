@@ -1,5 +1,4 @@
 export enum ValuesKeys {
-  SEARCH = 'search',
-  HIDDEN = 'hidden',
-  POKEDEX = 'pokedex'
+  POKEDEX = 'pokedex',
+  OPEN_POKEDEX = 'open_pokedex'
 }
