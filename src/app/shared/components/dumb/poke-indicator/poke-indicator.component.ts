@@ -1,4 +1,5 @@
 import { Component, Input, Renderer2, inject, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { PokeColorsEnum, PokePropsEnum } from '@shared/enums';
 
 @Component({
   selector: 'poke-indicator',
@@ -25,11 +26,11 @@ export class PokeIndicatorComponent implements OnChanges {
     const {active}=change;
     const {nativeElement}=this.indicator;
     if (active.currentValue){
-      this._renderer2.setStyle(nativeElement, 'box-shadow', `0 0 1.2rem ${this.getShadow}`);
-      this._renderer2.setStyle(nativeElement, 'background-color', this.getActiveColor)
+      this._renderer2.setStyle(nativeElement, PokePropsEnum.BOX_SHADOW, `0 0 1.2rem ${this.getShadow}`);
+      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGORUND_COLOR, this.getActiveColor)
     } else {
-      this._renderer2.removeStyle(nativeElement, 'box-shadow');
-      this._renderer2.setStyle(nativeElement, 'background-color', this.bgColor)
+      this._renderer2.removeStyle(nativeElement, PokePropsEnum.BOX_SHADOW);
+      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGORUND_COLOR, this.bgColor)
     }
   }
 
@@ -38,15 +39,15 @@ export class PokeIndicatorComponent implements OnChanges {
   }
 
   get getActiveColor():string {
-    return this.activeColor??'var(--deep-sky-blue)';
+    return this.light??PokeColorsEnum.DEEP_SKY_BLUE;
   }
 
   get getBorder():string {
-    return this.border??'var(--snow)';
+    return this.border??PokeColorsEnum.SNOW;
   }
 
   get bgColor():string{
-    return this.light??'var(--steel-blue)';
+    return this.activeColor??PokeColorsEnum.STEEL_BLUE;
   }
 
   get getSize(): string {

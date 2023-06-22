@@ -4,26 +4,30 @@
       <poke-indicator [size]="'m'" [active]="destello"></poke-indicator>
       <div class="poke-console__items">
         <poke-indicator
-          [light]="'var(--tomato)'"
+          [activeColor]="PokeColors.TOMATO"
           [size]="'s'"
           [active]="destello"
-          [activeColor]="'var(--orange-red)'"></poke-indicator>
+          [light]="PokeColors.ORANGE_RED"></poke-indicator>
         <poke-indicator
-          [light]="'var(--gold)'"
+          [activeColor]="PokeColors.GOLD"
           [size]="'s'"
           [active]="destello"
-          [activeColor]="'var(--yellow)'"></poke-indicator>
+          [light]="PokeColors.YELLOW"></poke-indicator>
         <poke-indicator
-          [light]="'var(--lime-green)'"
+          [activeColor]="PokeColors.LIME_GREEN"
           [size]="'s'"
           [active]="destello"
-          [activeColor]="'var(--lawn-green)'"></poke-indicator>
+          [light]="PokeColors.LAWN_GREEN"></poke-indicator>
       </div>
     </div>
     <div class="screen">
       <figure class="screen__figure">
-        <img [src]="pokemon$ .sprites.other.dream_world.front_default" [alt]="pokemon$.name" class="screen__img">
-        <figcaption class="screen__name">{{pokemon$.name}}</figcaption>
+        <img 
+          [src]="pokemon$.sprites.other.dream_world.front_default" 
+          [alt]="pokemon$.name"
+          class="screen__img"
+          *ngIf="showScreen">
+        <figcaption class="screen__name" *ngIf="showScreen">{{pokemon$.name}}</figcaption>
       </figure>
     </div>
     <div class="poke-controls">

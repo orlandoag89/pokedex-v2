@@ -1,7 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Subject, interval, takeUntil, takeWhile } from 'rxjs';
+import { Subject, interval, takeWhile } from 'rxjs';
 import { DialogAbstract } from '@shared/libs';
 import { PokeconsoleModel } from './poke-console.model';
+import { PokeColorsEnum } from '@shared/enums';
 
 @Component({
   selector: 'poke-console',
@@ -15,9 +16,10 @@ export class PokeConsoleComponent extends DialogAbstract<string, PokeconsoleMode
   public onClick$: Subject<string>;
 
   public destello: boolean = false;
+  public showScreen = false;
+  public PokeColors = PokeColorsEnum;
 
   private _c = 0;
-  private showScreen = false;
 
   ngAfterViewInit() {
     console.log(this.data);
