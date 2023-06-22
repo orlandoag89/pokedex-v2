@@ -15,5 +15,5 @@ export enum PokeColorsEnum {
 
   SNOW= 'var(--snow)',
 
-  STEEL_BLUE= 'var(--steel-blue)'
+  STEEL_BLUE= 'var(--steel-blue)',
 }

@@ -1,5 +1,5 @@
 <div class="character">
   <figure [ngClass]="{'character__img-content--shadow': !showing}" class="character__img-content">
-    <img *ngIf="showing" [src]="pokemon.sprites.other.dream_world.front_default" [alt]="pokemon.name" class="character__img">
+    <img #image *ngIf="showing" [src]="pokemon.sprites.other.dream_world.front_default" [alt]="pokemon.name" class="character__img">
   </figure>
 </div>

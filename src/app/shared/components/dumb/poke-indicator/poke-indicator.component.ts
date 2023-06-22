@@ -27,10 +27,10 @@ export class PokeIndicatorComponent implements OnChanges {
     const {nativeElement}=this.indicator;
     if (active.currentValue){
       this._renderer2.setStyle(nativeElement, PokePropsEnum.BOX_SHADOW, `0 0 1.2rem ${this.getShadow}`);
-      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGORUND_COLOR, this.getActiveColor)
+      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGROUND_COLOR, this.getActiveColor)
     } else {
       this._renderer2.removeStyle(nativeElement, PokePropsEnum.BOX_SHADOW);
-      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGORUND_COLOR, this.bgColor)
+      this._renderer2.setStyle(nativeElement, PokePropsEnum.BACKGROUND_COLOR, this.bgColor)
     }
   }
 
