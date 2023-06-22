@@ -2,7 +2,7 @@
   &__indicators {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: .1rem solid var(--silver);
     padding-bottom: .6rem;
   }
@@ -35,12 +35,21 @@
     width: 100%;
     border-top: .1rem solid var(--silver);
     padding: .5rem 0;
+    display: flex;
+    justify-content: space-around;
     &__button {
       width: 20%;
       height: 5rem;
       border: none;
-      background-color: var(--lawn-green);
+      background-color: var(--tomato);
+      border: .1rem solid var(--dark-blue);
       border-radius: .6rem;
+    }
+    &__lines {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      width: 50%;
     }
   }
 }
