@@ -1,5 +1,5 @@
 import { Injectable, Type, ViewContainerRef } from "@angular/core";
-import { PokeDialogComponent } from "@dumbs-components";
+import { PokeDialogComponent } from "./poke-dialog/poke-dialog.component";
 
 @Injectable()
 export class PokeDialogService {

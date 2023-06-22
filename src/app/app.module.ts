@@ -11,8 +11,8 @@ import { GetTransalte } from '@core/translator';
 import { HomeModule } from '@modules';
 import { ROOT_REDUCER } from './module/core/state/app.state';
 import { environment } from 'src/environments/environment';
-import { PokeDialogService } from '@core/services';
 import { RootModule } from './module/root';
+import { PokeDialogService } from '@shared/libs';
 
 @NgModule({
   declarations: [
