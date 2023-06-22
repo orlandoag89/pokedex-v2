@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
 import { Observable } from 'rxjs';
 import { PokemonModel } from '@core/services';
-import { PokePokedexComponent, PokePokedexEnum } from '@smarts-components';
+import { PokeConsoleComponent, PokePokedexComponent, PokePokedexEnum } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
 @Component({
   selector: 'pkd2-home-page',
@@ -23,14 +23,22 @@ export class HomePageComponent implements OnInit {
     this._facade.retrievePokemons$().subscribe();
     this.loading$ = this._facade.getLoading$();
     this.pokemonRandom$ = this._facade.getRandomPokemon$();
-    this.openPokedex();
+    this._facade.dialog(
+      this.traduction.get(ValuesKeys.POKEDEX)!,
+      'dialog',
+      PokeConsoleComponent,
+      {
+        pokemon$: this.pokemonRandom$,
+        isActive$: this._facade.pokeConsoleStatus$()
+      },
+    )
   }
 
   openPokedex(): void {
     this._facade.dialog(
       this.traduction.get(ValuesKeys.POKEDEX)!,
       'dialog',
-      PokePokedexComponent,
+      PokeConsoleComponent,
       {
         pokemon$: this.pokemonRandom$,
         isActive$: this._facade.pokeConsoleStatus$()
