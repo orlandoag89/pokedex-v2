@@ -1,6 +1,7 @@
 <ng-container *ngIf="data.pokemon$|async as pokemon$">
   <div class="poke-console">
     <div class="poke-console__indicators">
+      <poke-indicator [size]="'m'" [active]="destello"></poke-indicator>
     </div>
     <div class="poke-screen">
       <figure class="screen__figure">
@@ -9,7 +10,7 @@
       </figure>
     </div>
     <div class="poke-controls">
-      <button>OK</button>
+      <button (click)="openScreen()">OK</button>
     </div>
   </div>
 </ng-container>
