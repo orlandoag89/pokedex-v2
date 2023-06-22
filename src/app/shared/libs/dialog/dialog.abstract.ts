@@ -1,8 +1,8 @@
 import { Subject } from 'rxjs';
 
-export abstract class DialogAbstract<T, D> { 
+export abstract class DialogAbstract<I, O> { 
 
-  public abstract data: D;
+  public abstract data: I;
 
-  public abstract onClick$: Subject<T>
+  public abstract onClick$: Subject<O>
 }

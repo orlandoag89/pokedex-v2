@@ -10,7 +10,7 @@ import { PokeConsoleEnum } from './poke-console.enum';
   templateUrl: './poke-console.component.html',
   styleUrls: ['./poke-console.component.scss']
 })
-export class PokeConsoleComponent extends DialogAbstract<string, PokeconsoleModel> implements AfterViewInit {
+export class PokeConsoleComponent extends DialogAbstract<PokeconsoleModel, string> implements AfterViewInit {
   
   public data: PokeconsoleModel;
 

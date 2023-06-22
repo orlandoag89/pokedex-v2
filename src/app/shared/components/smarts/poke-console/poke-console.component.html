@@ -36,7 +36,7 @@
         <poke-line></poke-line>
         <poke-line></poke-line>
       </div>
-      <button poke-button class="poke-controls__button" (click)="openScreen()"></button>
+      <button poke-button class="poke-controls__button" [disabled]="showScreen" (click)="openScreen()"></button>
     </div>
   </div>
 </ng-container>
