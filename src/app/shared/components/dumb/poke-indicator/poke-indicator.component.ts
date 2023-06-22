@@ -19,8 +19,6 @@ export class PokeIndicatorComponent implements OnChanges {
 
   @Input() active:boolean;
 
-  @Input() shadowColor:string;
-
   @Input() activeColor: string;
 
   ngOnChanges(change: SimpleChanges): void {
@@ -31,12 +29,12 @@ export class PokeIndicatorComponent implements OnChanges {
       this._renderer2.setStyle(nativeElement, 'background-color', this.getActiveColor)
     } else {
       this._renderer2.removeStyle(nativeElement, 'box-shadow');
-      this._renderer2.setStyle(nativeElement, 'background-color', this.bgColor);
+      this._renderer2.setStyle(nativeElement, 'background-color', this.bgColor)
     }
   }
 
   get getShadow():string {
-    return this.shadowColor ?? 'var(--steel-blue)';
+    return this.bgColor;
   }
 
   get getActiveColor():string {

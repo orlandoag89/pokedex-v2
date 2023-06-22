@@ -2,15 +2,32 @@
   <div class="poke-console">
     <div class="poke-console__indicators">
       <poke-indicator [size]="'m'" [active]="destello"></poke-indicator>
+      <div class="poke-console__items">
+        <poke-indicator
+          [light]="'var(--tomato)'"
+          [size]="'s'"
+          [active]="destello"
+          [activeColor]="'var(--orange-red)'"></poke-indicator>
+        <poke-indicator
+          [light]="'var(--gold)'"
+          [size]="'s'"
+          [active]="destello"
+          [activeColor]="'var(--yellow)'"></poke-indicator>
+        <poke-indicator
+          [light]="'var(--lime-green)'"
+          [size]="'s'"
+          [active]="destello"
+          [activeColor]="'var(--lawn-green)'"></poke-indicator>
+      </div>
     </div>
-    <div class="poke-screen">
+    <div class="screen">
       <figure class="screen__figure">
         <img [src]="pokemon$ .sprites.other.dream_world.front_default" [alt]="pokemon$.name" class="screen__img">
-        <figcaption>{{pokemon$.name}}</figcaption>
+        <figcaption class="screen__name">{{pokemon$.name}}</figcaption>
       </figure>
     </div>
     <div class="poke-controls">
-      <button (click)="openScreen()">OK</button>
+      <button poke-button class="poke-controls__button" (click)="openScreen()"></button>
     </div>
   </div>
 </ng-container>
