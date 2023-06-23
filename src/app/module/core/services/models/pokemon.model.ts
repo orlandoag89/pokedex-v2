@@ -20,6 +20,6 @@ export interface PokemonModel {
   past_types: [];
   species: CommonModel;
   sprites: SpriteModel;
-  stat: StatModel[];
+  stats: StatModel[];
   types: TypeModel[];
 }

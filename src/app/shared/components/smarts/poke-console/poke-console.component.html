@@ -1,4 +1,4 @@
-<ng-container *ngIf="data.pokemon$|async as pokemon$">
+<ng-container *ngIf="data.pokemon$|async as p">
   <div class="poke-console">
     <div class="poke-console__indicators">
       <poke-indicator [size]="'m'" [active]="destello"></poke-indicator>
@@ -23,11 +23,11 @@
     <div class="screen">
       <figure class="screen__figure">
         <img 
-          [src]="pokemon$.sprites.other.dream_world.front_default" 
-          [alt]="pokemon$.name"
+          [src]="p.sprites.other.dream_world.front_default" 
+          [alt]="p.name"
           class="screen__img"
           *ngIf="showScreen">
-        <figcaption class="screen__name" *ngIf="showScreen">{{pokemon$.name}}</figcaption>
+        <figcaption class="screen__name" *ngIf="showScreen">{{p.name}}</figcaption>
       </figure>
     </div>
     <div class="poke-controls">

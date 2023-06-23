@@ -1,13 +1,23 @@
 .home {
+  &__about {
+    text-align: center;
+    margin: 0;
+    width: 50%;
+    padding: .5rem 0;
+  }
   &__character {
     padding: .5rem;
     border-bottom: .1rem solid var(--silver);
   }
   &__controls {
-    padding: 1rem;
+    padding: 0 1rem;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row-reverse;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__control {
+    margin: auto;
   }
   &__open-button {
     padding: .8rem;
@@ -15,5 +25,43 @@
     border: .1rem solid var(--dark-blue);
     background-color: var(--gold);
     color: var(--dark-blue);
+  }
+  .info-card {
+    width: 45%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    background: var(--lemon-chiffon);
+    border: .1rem solid var(--gold);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    &__type {
+      width: 50%;
+    }
+    &__item {
+      width: 100%;
+      padding-bottom: .8rem;
+    }
+    &__pokemon-type {
+      margin: 0;
+      padding: .8rem;
+    }
+    &__list {
+      width: 50%;
+    }
+    &__stats {
+      margin: 0;
+      list-style: none;
+      padding: 0 2rem;
+    }
+    &__stat {
+      display: flex;
+      padding-bottom: .5rem;
+    }
+    &__name {
+      margin: 0;
+      padding: 0;
+      width: 50%;
+    }
   }
 }

@@ -6,8 +6,31 @@
     <div class="home__character">
       <poke-character [pokemon]="p" [showing]="showPokemon"></poke-character>
     </div>
+    <h3 class="home__about" *ngIf="showPokemon">{{traduction.get(ValuesKeys.ABOUT)!.replace('{{pokemon_name}}', p.name)}}</h3>
     <div class="home__controls">
-      <button class="home__open-button" poke-button (click)="openPokeConsole()">{{traduction.get(ValuesKeys.OPEN_POKEDEX)}}</button>
+      <div class="info-card" *ngIf="showPokemon">
+        <div class="info-card__type">
+          <ng-container *ngFor="let t of p.types">
+            <div class="info-card__item">
+              <p class="info-card__pokemon-type" [ngStyle]="{
+                color: getColorByType(t.type.name),
+                border: '.2rem dashed ' + getColorByType(t.type.name)
+              }">{{t.type.name}}</p>
+            </div>
+          </ng-container>
+        </div>
+        <div class="info-card__list">
+          <ul class="info-card__stats">
+            <li *ngFor="let s of p.stats" class="info-card__stat">
+              <p class="info-card__name">{{s.stat.name + ':'}}</p>
+              <p class="info-card__name"><b>{{s.base_stat}}</b></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="home__control">
+        <button class="home__open-button" poke-button (click)="openPokeConsole()">{{traduction.get(ValuesKeys.OPEN_POKEDEX)}}</button>
+      </div>
     </div>
   </div>
 </ng-container>
