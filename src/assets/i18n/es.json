@@ -2,6 +2,7 @@
   "PAGE__home": {
     "PROP__pokedex": "Pokedex",
     "PROP__open_pokedex": "Abrir Pokedex",
-    "PROP__about": "Acerca de {{pokemon_name}}"
+    "PROP__about": "Acerca de {{pokemon_name}}",
+    "PROP__other_pokemon": "¡Hay otro pokemon!"
   }
 }

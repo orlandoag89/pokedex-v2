@@ -20,6 +20,12 @@ export abstract class BaseFacade {
     this._dialog.viewContainerRef = v;
   }
 
+  public onFinishLoaderByTime(time:number) {
+    setTimeout(() => {
+      this.finishLoader();
+    }, time);
+  }
+  
   public dialog<R>(
     title:string, 
     type: 'dialog', 
@@ -32,14 +38,22 @@ export abstract class BaseFacade {
   }
 
   public retrievePokemons$(): Observable<void> {
-    this._dispatch(initLoader())
+    this.initLoader();
     return this._pokeApi.geAlltPokemons().pipe(
       switchMap(v => v.results),
       map(p => this._pokeApi.getPokemon(p.url)),
       mergeMap(v => v),
       map(p => this._dispatch(loadPokemons({pokemon: p}))),
-      finalize(() => this._dispatch(finishLoader()))
+      finalize(() => this.finishLoader())
     );
+  }
+
+  public initLoader(): void {
+    return this._dispatch(initLoader());
+  }
+
+  public finishLoader(): void {
+    return this._dispatch(finishLoader());
   }
 
   public toggleConsoleStatus(): void {

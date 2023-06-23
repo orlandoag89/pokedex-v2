@@ -26,8 +26,8 @@ export class PokeCharacterComponent implements OnChanges {
     setTimeout(() => {
       if (showing.currentValue) {
         const {name}=types[0].type;
-        const secondaryType = types[1]?types[1].type.name:pokemonTypesColors.default;
-        const mainType = pokemonTypesColors[name];        
+        const secondaryType = types[1]?pokemonTypesColors[types[1].type.name]:pokemonTypesColors.default;
+        const mainType = pokemonTypesColors[name];
         this._renderer2.setStyle(this.imgChar.nativeElement, PokePropsEnum.BACKGROUND, `radial-gradient(${secondaryType} 33%, ${mainType} 33%)`);
         this._renderer2.setStyle(this.imgChar.nativeElement, PokePropsEnum.BACKGROUND_SIZE, '.5rem .5rem');
       }

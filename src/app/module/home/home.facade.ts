@@ -13,7 +13,7 @@ export class HomeFacade extends BaseFacade {
   }
 
   public getRandomPokemon$():Observable<PokemonModel> {
-    const indexRandom = Math.round(Math.random() * HomeEnum.LIMIT_RANDOM);
+    const indexRandom = Math.round(Math.random() * (HomeEnum.LIMIT_RANDOM - 1 + 1) + 1);
     return this.getLoading$().pipe(
       map(l => l),
       switchMap(lr => {

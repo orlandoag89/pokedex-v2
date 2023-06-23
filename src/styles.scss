@@ -34,6 +34,9 @@
 
   --steel-blue: #4682B4;
   --dark-blue: #00008B;
+  --navy: #000080;
+  --midinight-blue: #191970;
+  --dodger-blue: #1E90FF;
   --deep-sky-blue: #00BFFF;
   --cadet-blue: #5F9EA0;
   --light-steel-blue: #B0C4DE;
@@ -71,10 +74,10 @@
   --dark: rgb(2,0,36);
 
   .poke-general-shadow--dark {
-    box-shadow: inset 0 0 1.5rem .5rem rgba(0, 0, 0, .6);
+    box-shadow: inset 0 0 .5rem .2rem rgba(0, 0, 0, .6);
   }
 
   .poke-general-shadow--light {
-    box-shadow: inset 0 0 1.5rem .5rem rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 .5rem .2rem rgba(255, 255, 255, 0.6);
   }
 }

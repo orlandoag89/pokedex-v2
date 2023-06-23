@@ -15,7 +15,7 @@
               <p class="info-card__pokemon-type" [ngStyle]="{
                 color: getColorByType(t.type.name),
                 border: '.2rem dashed ' + getColorByType(t.type.name)
-              }">{{t.type.name}}</p>
+              }">{{t.type.name|titlecase}}</p>
             </div>
           </ng-container>
         </div>
@@ -29,6 +29,7 @@
         </div>
       </div>
       <div class="home__control">
+        <button class="home__open-button home__reload" poke-button (click)="realodPokemon()">{{traduction.get(ValuesKeys.OTHER_POKEMON)}}</button>
         <button class="home__open-button" poke-button (click)="openPokeConsole()">{{traduction.get(ValuesKeys.OPEN_POKEDEX)}}</button>
       </div>
     </div>

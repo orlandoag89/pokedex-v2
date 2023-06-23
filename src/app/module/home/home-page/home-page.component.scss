@@ -17,7 +17,11 @@
     align-items: center;
   }
   &__control {
-    margin: auto;
+    margin: 1rem auto;
+    width: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
   }
   &__open-button {
     padding: .8rem;
@@ -26,12 +30,17 @@
     background-color: var(--gold);
     color: var(--dark-blue);
   }
+  &__reload {
+    background-color: var(--deep-sky-blue);
+    border: .1rem solid var(--steel-blue);
+    color: var(--steel-blue);
+  }
   .info-card {
     width: 45%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    background: var(--lemon-chiffon);
+    background: var(--pink);
     border: .1rem solid var(--gold);
     border-radius: 0.8rem;
     padding: 1rem;

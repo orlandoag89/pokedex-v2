@@ -1,10 +1,11 @@
-import { Component, OnInit, inject, Renderer2 } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
 import { Observable } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokeConsoleComponent, PokeConsoleEnum, } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
 import { pokemonTypesColors } from '@shared/libs';
+
 @Component({
   selector: 'pkd2-home-page',
   templateUrl: './home-page.component.html',
@@ -19,7 +20,6 @@ export class HomePageComponent implements OnInit {
   public ValuesKeys = ValuesKeys;
 
   private _facade: HomeFacade = inject(HomeFacade);
-  private _renderer2: Renderer2 = inject(Renderer2);
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
@@ -44,6 +44,13 @@ export class HomePageComponent implements OnInit {
         }
       }
     )
+  }
+
+  public realodPokemon():void {
+    this._facade.initLoader();
+    this.showPokemon=false;
+    this.pokemonRandom$ = this._facade.getRandomPokemon$();
+    this._facade.onFinishLoaderByTime(1000);
   }
 
   public getColorByType(type:string) {
