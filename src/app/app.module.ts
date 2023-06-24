@@ -13,6 +13,7 @@ import { ROOT_REDUCER } from './module/core/state/app.state';
 import { environment } from 'src/environments/environment';
 import { RootModule } from './module/root';
 import { PokeDialogService } from '@shared/libs';
+import { PokeNavBarModule } from './shared/components/dumb/poke-nav-bar';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PokeDialogService } from '@shared/libs';
       }
     }),
     StoreModule.forRoot(ROOT_REDUCER),
-    StoreDevtoolsModule.instrument({ maxAge: 24, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 24, logOnly: environment.production }),
+    PokeNavBarModule
   ],
   providers: [
     PokeDialogService
