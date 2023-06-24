@@ -4,23 +4,21 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
-
 import { StoreModule } from '@ngrx/store';
-import { AppComponent } from './app.component';
 import { GetTransalte } from '@core/translator';
-import { HomeModule } from '@modules';
+import { PokeDialogService } from '@shared/libs';
+
+import { AppComponent } from './app.component';
 import { ROOT_REDUCER } from './module/core/state/app.state';
 import { environment } from 'src/environments/environment';
 import { RootModule } from './module/root';
-import { PokeDialogService } from '@shared/libs';
-import { PokeNavBarModule } from './shared/components/dumb/poke-nav-bar';
+import { PokeNavBarModule } from '@dumbs-components';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    HomeModule,
     RootModule,
     BrowserModule,
     AppRoutingModule,

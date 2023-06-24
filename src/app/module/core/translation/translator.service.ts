@@ -23,13 +23,7 @@ export class TranslatorService extends Translation {
     this.translate().pipe(
       map(v => mapa.set(v.key, v.value)),
       takeUntil(this._destroy$)
-    ).subscribe(() => {
-      if (values.length === mapa.size) {
-        this._destroy$.next(true);
-        this._destroy$.complete();
-        this._destroy$.unsubscribe();
-      }
-    });
+    ).subscribe();
     return mapa;
   }
 
