@@ -1,0 +1,32 @@
+.poke-nav-bar {
+  width: 100%;
+  background-color: var(--gold);
+  &__links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row wrap;
+  }
+  &__item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: .1rem solid var(--snow);
+  }
+  &__link {
+    max-width: 10rem;
+    width: 10rem;
+    display: block;
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark-slategray);
+    
+  }
+  &__link--active {
+    background: rgb(255,215,0);
+    background: linear-gradient(0deg, rgba(255,215,0,1) 0%, rgba(255,255,0,1) 100%);
+    font-weight: bold;
+  }
+}

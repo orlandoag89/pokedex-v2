@@ -1,9 +1,15 @@
-<nav>
-  <ul>
-    <a routerLink="/" routerLinkActive="router-link-active" >Home</a>
-    <a routerLink="/dictionary" routerLinkActive="router-link-active" >Dictionary</a>
+<nav class="poke-nav-bar">
+  <ul class="poke-nav-bar__links">
+    <li *ngFor="let item of links" class="poke-nav-bar__item">
+      <a 
+        [routerLink]="item.href" 
+        routerLinkActive="poke-nav-bar__link--active"
+        [routerLinkActiveOptions]="{exact: true}"
+        [innerHTML]="item.name" 
+        class="poke-nav-bar__link"></a>
+    </li>
   </ul>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
 </nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

@@ -6,6 +6,7 @@ import { TranslatorService } from "@core/translator";
 import { PokeApiService, PokemonModel } from "@core/services";
 import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon, switchPokeConsole, selectorConsoleStatus } from "@core/state";
 import { PokeDialogService } from "@shared/libs";
+import * as jsonLinks from './../../../../assets/json/links.json';
 
 export abstract class BaseFacade {
 
@@ -15,6 +16,11 @@ export abstract class BaseFacade {
   private readonly _dialog: PokeDialogService = inject(PokeDialogService);
   
   abstract initTranslate(): Map<string,string>;
+
+  public get linkList(): Object {
+    const {links} = jsonLinks;
+    return links;
+  }
 
   setViewContainerRef(v: ViewContainerRef) {
     this._dialog.viewContainerRef = v;
