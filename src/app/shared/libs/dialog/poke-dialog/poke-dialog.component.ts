@@ -16,6 +16,10 @@ export class PokeDialogComponent implements AfterViewInit {
   public title: string;
   public dialogType: 'dialog'|'confirm';
   public options: Object;
+  public close: {
+    text:string,
+    visible:boolean;
+  }
   public onClose$ = new Subject<void>();
   public onClick$ = new Subject<any>();
 

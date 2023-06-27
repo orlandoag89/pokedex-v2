@@ -1,0 +1,30 @@
+.poke-confirm {
+  &__message {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  &__question {
+    margin: 0;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    padding: 0.5rem;
+    width: 20%;
+    background-color: transparent;
+    border-radius: 0.8rem
+  }
+  &__ok {
+    border: 0.1rem solid var(--cadet-blue);
+    color: var(--cadet-blue);
+  }
+  &__no {
+    border: 0.1rem solid var(--crimson);
+    color: var(--crimson);
+  }
+}

@@ -4,7 +4,7 @@
       <article class="dialog">
         <header class="dialog__header">
           <h1 class="dialog__title">{{title}}</h1>
-          <button class="dialog__close-button" (click)="onClose$.next()">Cerrar</button>
+          <button class="dialog__close-button" (click)="onClose$.next()" *ngIf="close.visible">{{close.text}}</button>
         </header>
         <main class="dialog__content">
           <ng-template #dialogContent></ng-template>
@@ -12,8 +12,15 @@
       </article>
     </ng-container>
     <ng-container *ngSwitchCase="'confirm'">
-      <h1>xd</h1>
-      <ng-template #dialogContent></ng-template>
+      <article class="confirm">
+        <header class="dialog__header">
+          <h1 class="dialog__title">{{title}}</h1>
+          <button class="dialog__close-button" (click)="onClose$.next()" *ngIf="close.visible">{{close.text}}</button>
+        </header>
+        <main class="dialog__content">
+          <ng-template #dialogContent></ng-template>
+        </main>
+      </article>
     </ng-container>
   </ng-container>
 </div>

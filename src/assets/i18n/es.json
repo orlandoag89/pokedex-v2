@@ -8,6 +8,10 @@
   },
   "PAGE__captured_pokemons": {
     "PROP__pokemons_captured": "Pokemons Capturados",
-    "PROP__delete": "Liberar"
+    "PROP__delete": "Liberar",
+    "PROP__delete_message": "Estás apunto de liberar a un Pokemon",
+    "PROP__delete_confirm": "¿Continuar?",
+    "PROP__accept": "Si",
+    "PROP__decline": "No"
   }
 }

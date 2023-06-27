@@ -32,6 +32,10 @@ export class HomePageComponent implements OnInit {
     this._facade.dialog<PokeConsoleEnum>(
       this.traduction.get(this.ValuesKeys.POKEDEX)!,
       'dialog',
+      {
+        text: this._facade.config.DIALOG_CLOSE,
+        visible: true
+      },
       PokeConsoleComponent,
       {
         pokemon$: this.pokemonRandom$,

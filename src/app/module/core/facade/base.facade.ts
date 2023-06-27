@@ -18,6 +18,7 @@ import {
 } from "@core/state";
 import { PokeDialogService } from "@shared/libs";
 import * as jsonLinks from './../../../../assets/json/links.json';
+import * as config from './../../../../../config.json';
 
 export abstract class BaseFacade {
 
@@ -27,6 +28,10 @@ export abstract class BaseFacade {
   private readonly _dialog: PokeDialogService = inject(PokeDialogService);
   
   abstract initTranslate(): Map<string,string>;
+
+  public get config() {
+    return config;
+  }
 
   public get linkList(): Object {
     const {links} = jsonLinks;
@@ -53,12 +58,20 @@ export abstract class BaseFacade {
   public dialog<R>(
     title:string, 
     type: 'dialog'|'confirm', 
+    closeOptions: {
+      text:string,
+      visible: boolean
+    },
     element: Type<unknown>, 
     options?: Object, 
     click?: (arg?:R) => void,
     afterClose?: () => void
   ):void {
-    this._dialog.dialog<R>(title, type, element, options, click, afterClose);
+    this._dialog.dialog<R>(title, type, closeOptions, element, options, click, afterClose);
+  }
+
+  public closeDialog():void {
+    this._dialog.viewContainerRef.clear();
   }
 
   public retrievePokemons$(): Observable<void> {

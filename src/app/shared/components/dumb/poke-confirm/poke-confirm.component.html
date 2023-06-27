@@ -1,0 +1,8 @@
+<div class="poke-confirm">
+  <p class="poke-confirm__message" [innerHTML]="data.message"></p>
+  <h2 class="poke-confirm__question">{{data.question}}</h2>
+  <div class="poke-confirm__buttons">
+    <button poke-button class="poke-confirm__btn poke-confirm__ok" (click)="onClick$.next(true)">{{data.accept}}</button>
+    <button poke-button class="poke-confirm__btn poke-confirm__no" (click)="onClick$.next(false)">{{data.decline}}</button>
+  </div>
+</div>

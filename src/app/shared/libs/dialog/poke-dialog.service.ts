@@ -10,24 +10,33 @@ export class PokeDialogService {
     this._viewContainerRef = v;
   }
 
+  get viewContainerRef() {
+    return this._viewContainerRef;
+  }
+
   public dialog<T>(
     title: string, 
     type: 'dialog'|'confirm', 
+    closeOptions: {
+      text:string,
+      visible: boolean
+    },
     element: Type<unknown>, 
     options?:Object, 
     click?: (arg?:T) => void,
     afterClose?: () => void,
   ):void {
-    const dialog = this._viewContainerRef.createComponent(PokeDialogComponent);
+    const dialog = this.viewContainerRef.createComponent(PokeDialogComponent);
     const {instance} = dialog;
     instance.title = title;
     instance.dialogType = type;
     instance.element = element;
+    instance.close = closeOptions;
     instance.onClose$.subscribe(() => {
       if (afterClose) {
         afterClose();
       }
-      this._viewContainerRef.clear();
+      this.viewContainerRef.clear();
     });
     instance.onClick$.subscribe((v?: T) => {
       if (click) {
