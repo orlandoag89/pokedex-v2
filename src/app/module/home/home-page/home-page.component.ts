@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
     this._facade.lengthPokemons$().subscribe(l => this._length = l);
-    if (this._length < 30) {
+    if (this._length === 0) {
       this._facade.retrievePokemons$().subscribe();
     }
     this.loading$ = this._facade.loading$;

@@ -27,7 +27,7 @@ export class CapturedPokemonsPageComponent implements AfterViewInit {
 
   public free(): void {
     this._facade.dialog<boolean>({
-      title: this.CapturedPokemonsKeys.DELETE, 
+      title: this.translate.get(this.CapturedPokemonsKeys.DELETE)!, 
       type: 'confirm', 
       closeOptions: {
         text: this._facade.config.DIALOG_CLOSE,

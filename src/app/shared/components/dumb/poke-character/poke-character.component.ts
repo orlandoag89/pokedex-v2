@@ -24,7 +24,7 @@ export class PokeCharacterComponent implements OnChanges {
     const {showing}=changes;
     const {types} = this.pokemon;
     setTimeout(() => {
-      if (showing.currentValue) {
+      if (showing && showing.currentValue) {
         const {name}=types[0].type;
         const secondaryType = types[1]?pokemonTypesColors[types[1].type.name]:pokemonTypesColors.default;
         const mainType = pokemonTypesColors[name];

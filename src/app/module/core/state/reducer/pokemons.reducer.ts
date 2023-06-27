@@ -1,6 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { IPokemon } from "../interfaces/pokemon.interface";
-import { actionSaveCurrentPokemon, actionCaturePokemon, finishLoader, initLoader, loadPokemons, switchPokeConsole } from '../actions/actions.state';
+import { IPokemon } from "./../interfaces/pokemon.interface";
+import {
+  actionSaveCurrentPokemon,
+  actionCaturePokemon,
+  finishLoader,
+  initLoader,
+  loadPokemons,
+  switchPokeConsole
+} from '../actions/actions.state';
 
 const initialState: IPokemon = {
   loading: false,
@@ -25,7 +32,10 @@ export const pokemonsReducer = createReducer(initialState,
   }),
   on(loadPokemons, (state, {pokemon}) => {
     const copyState = {...state};
-    const pokemonState = copyState.pokemons.concat(pokemon);
+    const pokemonState = copyState.pokemons.concat({
+      ...pokemon,
+      is_free: true
+    });
     copyState.pokemons = pokemonState;
     return {
       ...state,
@@ -47,12 +57,19 @@ export const pokemonsReducer = createReducer(initialState,
     }
   }),
   on(actionCaturePokemon, (state, {newPokemon}) => {
-    const {capturedPokemons} = state;
-    const pFound = capturedPokemons.findIndex(p=>p.id===newPokemon.id);
+    const pFound = state.capturedPokemons.findIndex(p=>p.id===newPokemon.id);
     if (pFound === -1) {
-      const currentPokemonList = state.capturedPokemons.concat(newPokemon);
+      const copyPokemons = [...state.pokemons];
+      const indexPokemon = state.pokemons.findIndex(p => p.id === newPokemon.id);
+      const copyPokemon = {...state.pokemons[indexPokemon]};
+      copyPokemon.is_free = false;
+      copyPokemons[indexPokemon] = copyPokemon;
+      const copyNewPokemon = {...newPokemon};
+      copyNewPokemon.is_free = false;
+      const currentPokemonList = state.capturedPokemons.concat(copyNewPokemon);
       return {
         ...state,
+        pokemons: copyPokemons,
         capturedPokemons: currentPokemonList
       }
     }

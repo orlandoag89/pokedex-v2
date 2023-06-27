@@ -22,4 +22,5 @@ export interface PokemonModel {
   sprites: SpriteModel;
   stats: StatModel[];
   types: TypeModel[];
+  is_free: boolean;
 }
