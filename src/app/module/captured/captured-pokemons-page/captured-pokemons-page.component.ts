@@ -26,18 +26,25 @@ export class CapturedPokemonsPageComponent implements AfterViewInit {
   }
 
   public free(): void {
-    this._facade.dialog<boolean>('xxxxx', 'confirm', {
-      text: this._facade.config.DIALOG_CLOSE,
-      visible: true
-    }, PokeConfirmComponent, {
-      message: this.translate.get(this.CapturedPokemonsKeys.DELETE_MESSAGE),
-      question: this.translate.get(this.CapturedPokemonsKeys.DELETE_CONFIRM),
-      accept: this.translate.get(this.CapturedPokemonsKeys.ACCEPT),
-      decline: this.translate.get(this.CapturedPokemonsKeys.DECLINE)
-    }, accept => {
-      if (accept) {
-      } else {
-        this._facade.closeDialog();
+    this._facade.dialog<boolean>({
+      title: this.CapturedPokemonsKeys.DELETE, 
+      type: 'confirm', 
+      closeOptions: {
+        text: this._facade.config.DIALOG_CLOSE,
+        visible: true
+      },
+      element: PokeConfirmComponent, 
+      options: {
+        message: this.translate.get(this.CapturedPokemonsKeys.DELETE_MESSAGE),
+        question: this.translate.get(this.CapturedPokemonsKeys.DELETE_CONFIRM),
+        accept: this.translate.get(this.CapturedPokemonsKeys.ACCEPT),
+        decline: this.translate.get(this.CapturedPokemonsKeys.DECLINE)
+      }, 
+      click: accept => {
+        if (accept) {
+        } else {
+          this._facade.closeDialog();
+        }
       }
     });
   }

@@ -1,5 +1,6 @@
-import { Injectable, Type, ViewContainerRef } from "@angular/core";
+import { Injectable, ViewContainerRef } from "@angular/core";
 import { PokeDialogComponent } from "./poke-dialog/poke-dialog.component";
+import { IDialog } from "./dialog.interface";
 
 @Injectable()
 export class PokeDialogService {
@@ -14,37 +15,26 @@ export class PokeDialogService {
     return this._viewContainerRef;
   }
 
-  public dialog<T>(
-    title: string, 
-    type: 'dialog'|'confirm', 
-    closeOptions: {
-      text:string,
-      visible: boolean
-    },
-    element: Type<unknown>, 
-    options?:Object, 
-    click?: (arg?:T) => void,
-    afterClose?: () => void,
-  ):void {
+  public dialog<T>(dialogOptions: IDialog<T>):void {
     const dialog = this.viewContainerRef.createComponent(PokeDialogComponent);
     const {instance} = dialog;
-    instance.title = title;
-    instance.dialogType = type;
-    instance.element = element;
-    instance.close = closeOptions;
+    instance.title = dialogOptions.title;
+    instance.dialogType = dialogOptions.type;
+    instance.element = dialogOptions.element;
+    instance.close = dialogOptions.closeOptions;
     instance.onClose$.subscribe(() => {
-      if (afterClose) {
-        afterClose();
+      if (dialogOptions.afterClose) {
+        dialogOptions.afterClose();
       }
       this.viewContainerRef.clear();
     });
     instance.onClick$.subscribe((v?: T) => {
-      if (click) {
-        click(v);
+      if (dialogOptions.click) {
+        dialogOptions.click(v);
       }
     })
-    if (options) {
-      instance.options=options;
+    if (dialogOptions.options) {
+      instance.options=dialogOptions.options;
     }
   }
 }

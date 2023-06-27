@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Subject, interval, takeWhile } from 'rxjs';
-import { DialogAbstract } from '@shared/libs';
+import { DialogAbstract } from '@shared/libs/dialog';
 import { PokeconsoleModel } from './poke-console.model';
 import { PokeColorsEnum } from '@shared/enums';
 import { PokeConsoleEnum } from './poke-console.enum';

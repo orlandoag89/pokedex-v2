@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { GetTransalte } from '@core/translator';
-import { PokeDialogService } from '@shared/libs';
+import { PokeDialogService } from '@shared/libs/dialog';
 
 import { AppComponent } from './app.component';
 import { ROOT_REDUCER } from './module/core/state/app.state';

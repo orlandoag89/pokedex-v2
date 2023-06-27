@@ -33,7 +33,7 @@
       "@dumbs-components": ["src/app/shared/components/dumb/index.ts"],
       "@shared/enums": ["src/app/shared/enums/index.ts"],
       "@shared/directives": ["src/app/shared/directives/index.ts"],
-      "@shared/libs": ["src/app/shared/libs/index.ts"],
+      "@shared/libs/dialog": ["src/app/shared/libs/index.ts"],
       "@modules": ["src/app/module/index.ts"]
     }
   },

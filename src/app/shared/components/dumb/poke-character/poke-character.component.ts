@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, inject } from '@angular/core';
 import { PokemonModel } from '@core/services';
 import { PokePropsEnum } from '@shared/enums';
-import { pokemonTypesColors } from '@shared/libs';
+import { pokemonTypesColors } from '@shared/libs/dialog';
 
 @Component({
   selector: 'poke-character',

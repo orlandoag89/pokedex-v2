@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { DialogAbstract } from '@shared/libs';
+import { DialogAbstract } from '@shared/libs/dialog';
 import { PokeConfirmModel } from './poke-confirm.model';
 
 @Component({

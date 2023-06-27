@@ -16,7 +16,7 @@ import {
   selectorCapturedPokemons,
   actionCaturePokemon
 } from "@core/state";
-import { PokeDialogService } from "@shared/libs";
+import { IDialog, PokeDialogService } from "@shared/libs/dialog";
 import * as jsonLinks from './../../../../assets/json/links.json';
 import * as config from './../../../../../config.json';
 
@@ -55,19 +55,8 @@ export abstract class BaseFacade {
     }, time);
   }
   
-  public dialog<R>(
-    title:string, 
-    type: 'dialog'|'confirm', 
-    closeOptions: {
-      text:string,
-      visible: boolean
-    },
-    element: Type<unknown>, 
-    options?: Object, 
-    click?: (arg?:R) => void,
-    afterClose?: () => void
-  ):void {
-    this._dialog.dialog<R>(title, type, closeOptions, element, options, click, afterClose);
+  public dialog<R>(options: IDialog<R>):void {
+    this._dialog.dialog<R>(options);
   }
 
   public closeDialog():void {
@@ -97,15 +86,15 @@ export abstract class BaseFacade {
     return this._dispatch(switchPokeConsole());
   }
 
-  public pokeConsoleStatus$(): Observable<boolean> {
+  public get pokeConsoleStatus$(): Observable<boolean> {
     return this._select$<boolean>(selectorConsoleStatus);
   }
 
-  public getLoading$(): Observable<boolean> {
+  public get loading$(): Observable<boolean> {
     return this._select$<boolean>(loaderSelector);
   }
 
-  public getPokemons$(): Observable<PokemonModel[]> {
+  public get pokemons$(): Observable<PokemonModel[]> {
     return this._select$<PokemonModel[]>(selectorPokemons);
   }
 

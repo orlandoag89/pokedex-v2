@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokeConsoleComponent, PokeConsoleEnum, } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
-import { pokemonTypesColors } from '@shared/libs';
+import { pokemonTypesColors } from '@shared/libs/dialog';
 
 @Component({
   selector: 'pkd2-home-page',
@@ -24,30 +24,30 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
     this._facade.retrievePokemons$().subscribe();
-    this.loading$ = this._facade.getLoading$();
+    this.loading$ = this._facade.loading$;
     this.pokemonRandom$ = this._facade.getRandomPokemon$();
   }
 
   public openPokeConsole():void {
-    this._facade.dialog<PokeConsoleEnum>(
-      this.traduction.get(this.ValuesKeys.POKEDEX)!,
-      'dialog',
-      {
+    this._facade.dialog<PokeConsoleEnum>({
+      title: this.traduction.get(this.ValuesKeys.POKEDEX)!,
+      type: 'dialog',
+      closeOptions: {
         text: this._facade.config.DIALOG_CLOSE,
         visible: true
       },
-      PokeConsoleComponent,
-      {
+      element: PokeConsoleComponent,
+      options: {
         pokemon$: this.pokemonRandom$,
-        isActive$: this._facade.pokeConsoleStatus$(),
+        isActive$: this._facade.pokeConsoleStatus$,
         showing: this.showPokemon
       },
-      args => {
+      click: args => {
         if (args === PokeConsoleEnum.SHOW_POKEMON) {
           this.showPokemon = true;
         }
       }
-    )
+    });
   }
 
   public realodPokemon():void {

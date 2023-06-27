@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { PokeCharacterModule, PokeSpinnerModule } from "@dumbs-components";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { DirectivesModule } from "@shared/directives";
-import { PokeDialogModule } from "@shared/libs";
+import { PokeDialogModule } from "@shared/libs/dialog";
 import { HomeRoutingModule } from "./home-routing.module";
 
 @NgModule({
