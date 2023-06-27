@@ -11,14 +11,16 @@ export class PokeDialogComponent implements AfterViewInit {
   @ViewChild('dialogContent', {read: ViewContainerRef }) 
   private dialogContent!:ViewContainerRef;
 
-  private cdref: ChangeDetectorRef = inject(ChangeDetectorRef);
-
+  
   public element: Type<unknown>;
   public title: string;
+  public dialogType: 'dialog'|'confirm';
   public options: Object;
   public onClose$ = new Subject<void>();
   public onClick$ = new Subject<any>();
 
+  private cdref: ChangeDetectorRef = inject(ChangeDetectorRef);
+  
   ngAfterViewInit(): void {
     setTimeout(() => {
       const _element = this.dialogContent.createComponent(this.element) as any;

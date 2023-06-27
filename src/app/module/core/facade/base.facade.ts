@@ -52,7 +52,7 @@ export abstract class BaseFacade {
   
   public dialog<R>(
     title:string, 
-    type: 'dialog', 
+    type: 'dialog'|'confirm', 
     element: Type<unknown>, 
     options?: Object, 
     click?: (arg?:R) => void,

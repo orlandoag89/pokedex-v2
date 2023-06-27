@@ -1,11 +1,19 @@
 <div class="dialog__backgrop">
-  <article class="dialog">
-    <header class="dialog__header">
-      <h1 class="dialog__title">{{title}}</h1>
-      <button class="dialog__close-button" (click)="onClose$.next()">Cerrar</button>
-    </header>
-    <main class="dialog__content">
+  <ng-container [ngSwitch]="dialogType">
+    <ng-container *ngSwitchCase="'dialog'">
+      <article class="dialog">
+        <header class="dialog__header">
+          <h1 class="dialog__title">{{title}}</h1>
+          <button class="dialog__close-button" (click)="onClose$.next()">Cerrar</button>
+        </header>
+        <main class="dialog__content">
+          <ng-template #dialogContent></ng-template>
+        </main>
+      </article>
+    </ng-container>
+    <ng-container *ngSwitchCase="'confirm'">
+      <h1>xd</h1>
       <ng-template #dialogContent></ng-template>
-    </main>
-  </article>
+    </ng-container>
+  </ng-container>
 </div>
