@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { BaseFacade } from "@core/base-facade";
 import { PokemonModel } from "@core/services";
 import { ValuesKeys } from "./enums/values.keys";
-import { EMPTY, Observable, map, switchMap } from "rxjs";
+import { EMPTY, Observable, map, switchMap, tap } from "rxjs";
 import { HomeEnum } from "./enums/home.enum";
 
 @Injectable({providedIn: 'root'})
@@ -28,5 +28,11 @@ export class HomeFacade extends BaseFacade {
 
   public capture(currentPokemon: PokemonModel) {
     this.capturePokemon(currentPokemon);
+  }
+
+  public lengthPokemons$() {
+    return this.pokemons$.pipe(
+      map(p => p.length)
+    );
   }
 }

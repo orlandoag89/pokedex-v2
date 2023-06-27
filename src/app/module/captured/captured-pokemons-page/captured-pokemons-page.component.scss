@@ -2,10 +2,9 @@
   &__images {
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
+    gap: 2rem 1rem;
   }
   .pokemon-figure {
-    cursor: pointer;
     width: 15rem;
     height: 15rem;
     margin: 0;

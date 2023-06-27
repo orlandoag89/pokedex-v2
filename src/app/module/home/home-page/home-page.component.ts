@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokeConsoleComponent, PokeConsoleEnum, } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
@@ -20,10 +20,14 @@ export class HomePageComponent implements OnInit {
   public ValuesKeys = ValuesKeys;
 
   private _facade: HomeFacade = inject(HomeFacade);
+  private _length: number;
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
-    this._facade.retrievePokemons$().subscribe();
+    this._facade.lengthPokemons$().subscribe(l => this._length = l);
+    if (this._length < 30) {
+      this._facade.retrievePokemons$().subscribe();
+    }
     this.loading$ = this._facade.loading$;
     this.pokemonRandom$ = this._facade.getRandomPokemon$();
   }
