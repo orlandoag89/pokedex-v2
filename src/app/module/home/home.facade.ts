@@ -25,4 +25,8 @@ export class HomeFacade extends BaseFacade {
       map(p => p[indexRandom]|| undefined)
     );
   }
+
+  public capture(currentPokemon: PokemonModel) {
+    this.capturePokemon(currentPokemon);
+  }
 }

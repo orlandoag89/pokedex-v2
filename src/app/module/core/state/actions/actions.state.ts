@@ -24,3 +24,8 @@ export const actionSaveCurrentPokemon = createAction(
 export const switchPokeConsole = createAction(
   '[On Off] Toggle console'
 );
+
+export const actionCaturePokemon = createAction(
+  '[Capturing Pokemon] Capturing Pokemon',
+  props<{ newPokemon: PokemonModel }>()
+);

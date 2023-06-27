@@ -5,4 +5,5 @@ export interface IPokemon {
   pokemons: PokemonModel[];
   currentPokemon: PokemonModel|undefined;
   consoleStatus:boolean;
+  capturedPokemons: PokemonModel[];
 }

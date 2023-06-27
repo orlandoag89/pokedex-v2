@@ -57,4 +57,7 @@ export class HomePageComponent implements OnInit {
     return pokemonTypesColors[type];
   }
 
+  public capturePokemon(currentPokemon: PokemonModel) {
+    this._facade.capturePokemon(currentPokemon);
+  }
 }

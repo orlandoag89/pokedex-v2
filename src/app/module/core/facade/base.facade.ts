@@ -4,7 +4,18 @@ import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
 import { PokeApiService, PokemonModel } from "@core/services";
-import { initLoader, loadPokemons, finishLoader, loaderSelector, selectorPokemons, actionSaveCurrentPokemon, switchPokeConsole, selectorConsoleStatus } from "@core/state";
+import {
+  initLoader,
+  loadPokemons, 
+  finishLoader, 
+  loaderSelector,
+  selectorPokemons,
+  actionSaveCurrentPokemon,
+  switchPokeConsole,
+  selectorConsoleStatus,
+  selectorCapturedPokemons,
+  actionCaturePokemon
+} from "@core/state";
 import { PokeDialogService } from "@shared/libs";
 import * as jsonLinks from './../../../../assets/json/links.json';
 
@@ -22,7 +33,14 @@ export abstract class BaseFacade {
     return links;
   }
 
-  setViewContainerRef(v: ViewContainerRef) {
+  public get capturedPokemons$(): Observable<PokemonModel[]> {
+    return this._select$<PokemonModel[]>(selectorCapturedPokemons)
+  }
+
+  public capturePokemon(p: PokemonModel) {
+    return this._dispatch(actionCaturePokemon({newPokemon: p}));
+  }
+  public setViewContainerRef(v: ViewContainerRef): void {
     this._dialog.viewContainerRef = v;
   }
 

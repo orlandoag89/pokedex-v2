@@ -7,6 +7,11 @@
     },
     {
       "id": 2,
+      "href": "/captured-pokemons",
+      "name": "Pokemons Capturados"
+    },
+    {
+      "id": 2,
       "href": "/dictionary",
       "name": "Poke-diccionario"
     }
