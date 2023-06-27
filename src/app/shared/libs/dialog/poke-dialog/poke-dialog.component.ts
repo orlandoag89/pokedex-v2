@@ -11,7 +11,7 @@ export class PokeDialogComponent implements AfterViewInit {
   @ViewChild('dialogContent', {read: ViewContainerRef }) 
   private dialogContent!:ViewContainerRef;
 
-  private cdref: ChangeDetectorRef = inject(ChangeDetectorRef)
+  private cdref: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   public element: Type<unknown>;
   public title: string;

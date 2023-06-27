@@ -8,6 +8,10 @@ const routes: Routes = [
   {
     path: 'dictionary',
     loadChildren: () => import('./module/dictionary/dictionary.module').then(m=>m.DictionaryModule)
+  },
+  {
+    path: 'captured-pokemons',
+    loadChildren:() => import('./module/captured/captured-pokemons.module').then(m=>m.CapturedPokemonsModule)
   }
 ];
 

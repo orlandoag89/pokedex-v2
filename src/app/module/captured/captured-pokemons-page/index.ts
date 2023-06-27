@@ -1,0 +1,1 @@
+export * from './captured-pokemons-page.component';

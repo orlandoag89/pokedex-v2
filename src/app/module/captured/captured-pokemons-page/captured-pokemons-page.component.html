@@ -1,1 +1,17 @@
-<p>captured-pokemons-page works!</p>
+<ng-container *ngIf="pokemons$|async as p">
+  <div class="captured-pokemons">
+    <header class="captured-pokemons__header">
+      <h1>{{translate.get(CapturedPokemonsKeys.POKEMONS_CAPTURED)!}}</h1>
+    </header>
+    <main class="captured-pokemons__content">
+      <div class="captured-pokemons__images">
+        <ng-container *ngFor="let pokemon of p">
+          <figure class="pokemon-figure">
+            <img [src]="pokemon.sprites.other.dream_world.front_default" [alt]="pokemon.name" class="pokemon-figure__img"/>
+            <figcaption class="pokemon-figure__name">{{pokemon.name}}</figcaption>
+          </figure>
+        </ng-container>
+      </div>
+    </main>
+  </div>
+</ng-container>

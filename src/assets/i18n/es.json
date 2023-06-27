@@ -5,5 +5,9 @@
     "PROP__about": "Acerca de {{pokemon_name}}",
     "PROP__other_pokemon": "¡Hay otro pokemon!",
     "PROP__capturing": "¡Capturar ahora!"
+  },
+  "PAGE__captured_pokemons": {
+    "PROP__pokemons_captured": "Pokemons Capturados",
+    "PROP__delete": "Liberar"
   }
 }
