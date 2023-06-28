@@ -1,9 +1,9 @@
-import { Type, ViewContainerRef, inject } from "@angular/core";
+import { ViewContainerRef, inject } from "@angular/core";
 import { Store } from '@ngrx/store';
 import { Observable, finalize, map, mergeMap, switchMap } from "rxjs";
 
 import { TranslatorService } from "@core/translator";
-import { PokeApiService, PokemonModel } from "@core/services";
+import { PokeApiService, PokeStoreService, PokemonModel } from "@core/services";
 import {
   initLoader,
   loadPokemons, 
@@ -23,6 +23,9 @@ import * as config from './../../../../../config.json';
 export abstract class BaseFacade {
 
   protected readonly translation: TranslatorService = inject(TranslatorService);
+  protected readonly pokeStoreService: PokeStoreService = inject(PokeStoreService);
+  protected readonly OFFSET_POKEMON = 30;
+
   private readonly _store: Store = inject(Store<any>);
   private readonly _pokeApi: PokeApiService = inject(PokeApiService);
   private readonly _dialog: PokeDialogService = inject(PokeDialogService);
@@ -63,9 +66,9 @@ export abstract class BaseFacade {
     this._dialog.viewContainerRef.clear();
   }
 
-  public retrievePokemons$(): Observable<void> {
+  public retrievePokemons$(offset:string): Observable<void> {
     this.initLoader();
-    return this._pokeApi.geAlltPokemons().pipe(
+    return this._pokeApi.geAlltPokemons(offset).pipe(
       switchMap(v => v.results),
       map(p => this._pokeApi.getPokemon(p.url)),
       mergeMap(v => v),

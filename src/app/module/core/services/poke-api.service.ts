@@ -12,8 +12,8 @@ export class PokeApiService {
 
   private _httpClient: HttpClient = inject(HttpClient);
 
-  public geAlltPokemons():Observable<PokemonResponseModel> {
-    const url = `${Paths.POKE_API_V2}?${Paths.LIMIT}=${PokeApiEnum.LIMIT}&${Paths.LIMIT}=${PokeApiEnum.OFFSET}`;
+  public geAlltPokemons(offset:string):Observable<PokemonResponseModel> {
+    const url = `${Paths.POKE_API_V2}?${Paths.LIMIT}=${PokeApiEnum.LIMIT}&${Paths.OFFSET}=${offset}`;
     return this._httpClient.get<PokemonResponseModel>(url);
   }
 

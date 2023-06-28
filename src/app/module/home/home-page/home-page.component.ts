@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap, switchMap, EMPTY } from 'rxjs';
 import { PokemonModel } from '@core/services';
-import { PokeConsoleComponent, PokeConsoleEnum, } from '@smarts-components';
+import { PokeConsoleComponent, PokeConsoleEnum } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
 import { pokemonTypesColors } from '@shared/libs/dialog';
 
@@ -20,14 +20,30 @@ export class HomePageComponent implements OnInit {
   public ValuesKeys = ValuesKeys;
 
   private _facade: HomeFacade = inject(HomeFacade);
-  private _length: number;
+  private _allPokemons: number;
 
   ngOnInit(): void {
     this.traduction=this._facade.initTranslate();
-    this._facade.lengthPokemons$().subscribe(l => this._length = l);
-    if (this._length === 0) {
-      this._facade.retrievePokemons$().subscribe();
+    this._facade.pokemonsInStore$().subscribe(l => this._allPokemons = l);
+    if (this._allPokemons === 0) {
+      this.updateAndRetrievePokemons$().subscribe();
+      // this._facade.offset();
+      // this._facade.retrievePokemons$('0').subscribe();
     }
+    // if (this._allPokemons === 30) {
+    //   this._facade.freePokemons$().subscribe(console.log)
+    // }
+    // this._facade.offset();
+    this._facade.freePokemons$().pipe(
+      map((v:PokemonModel[]) => v.length),
+      switchMap((l:number) => {
+        if (l === 0) {
+          console.log(l);
+          return this.updateAndRetrievePokemons$();
+        }
+        return EMPTY;
+      })
+    ).subscribe();
     this.loading$ = this._facade.loading$;
     this.pokemonRandom$ = this._facade.getRandomPokemon$();
   }
@@ -67,5 +83,10 @@ export class HomePageComponent implements OnInit {
 
   public capturePokemon(currentPokemon: PokemonModel) {
     this._facade.capturePokemon(currentPokemon);
+  }
+
+  private updateAndRetrievePokemons$ = () => {
+    this._facade.setOffset();
+    return this._facade.retrievePokemons$(this._facade.offset);
   }
 }

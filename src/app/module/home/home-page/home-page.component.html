@@ -33,6 +33,7 @@
           <button class="home__open-button home__reload" poke-button (click)="realodPokemon()">{{traduction.get(ValuesKeys.OTHER_POKEMON)}}</button>
           <button *ngIf="p.is_free" class="home__open-button home__reload" poke-button (click)="capturePokemon(p)">{{traduction.get(ValuesKeys.CAPTURING)}}</button>
         </ng-container>
+        <button class="home__open-button home__reload" poke-button (click)="capturePokemon(p)">{{traduction.get(ValuesKeys.CAPTURING)}}</button>
         <button 
           class="home__open-button"
           poke-button 
