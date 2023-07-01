@@ -24,7 +24,7 @@ export abstract class BaseFacade {
 
   protected readonly translation: TranslatorService = inject(TranslatorService);
   protected readonly pokeStoreService: PokeStoreService = inject(PokeStoreService);
-  protected readonly OFFSET_POKEMON = 30;
+  protected readonly OFFSET_POKEMON = 15;
 
   private readonly _store: Store = inject(Store<any>);
   private readonly _pokeApi: PokeApiService = inject(PokeApiService);

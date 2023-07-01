@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable, map, switchMap, EMPTY } from 'rxjs';
+import { Observable, map, switchMap, EMPTY, finalize, tap } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokeConsoleComponent, PokeConsoleEnum } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';

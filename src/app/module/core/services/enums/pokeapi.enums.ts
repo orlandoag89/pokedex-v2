@@ -1,4 +1,4 @@
 export enum PokeApiEnum {
-  LIMIT = 30,
+  LIMIT = 15,
   OFFSET = 0
 }

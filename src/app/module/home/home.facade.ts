@@ -15,7 +15,7 @@ export class HomeFacade extends BaseFacade {
   }
 
   public setOffset(): void {
-    const currentOffset = this.pokeStoreService.getItemSessionStorage(PokeStoreKeys.CURRENT_OFFSET);
+    const currentOffset = this.pokeStoreService.getItemSessionStorage(PokeStoreKeys.CURRENT_OFFSET)
     if(!currentOffset) {
       this.pokeStoreService.setItemSessionStorage(PokeStoreKeys.CURRENT_OFFSET, '0');
       return;
@@ -35,7 +35,6 @@ export class HomeFacade extends BaseFacade {
       _currentIndex = this.random() + '';
       this.pokeStoreService.setItemSessionStorage(PokeStoreKeys.CURRENT_RANDOM_INDEX, _currentIndex);
     }
-    console.log("🚀 ~ file: home.facade.ts:39 ~ HomeFacade ~ _currentIndex:", this._arrayRandom)
     return this.loading$.pipe(
       map(l => l),
       switchMap(lr => {
@@ -66,21 +65,15 @@ export class HomeFacade extends BaseFacade {
   }
 
   private random(): number {
-    const indexRandom = Math.round(Math.random() * (HomeEnum.MAX_RANDOM - HomeEnum.MIN_RANDOM + 1) + HomeEnum.MIN_RANDOM);
-    const _indexOf = this._arrayRandom.indexOf(indexRandom);
-    if (_indexOf === -1) {
+    const _random = () => Math.round(Math.random() * (HomeEnum.MAX_RANDOM - HomeEnum.MIN_RANDOM + 1) + HomeEnum.MIN_RANDOM);
+    const indexRandom = _random();
+    const _indexOf = (r:number) => this._arrayRandom.indexOf(r) === -1;
+    if (_indexOf(indexRandom)) {
       this._arrayRandom.push(indexRandom);
     } else {
       while(true) {
-        if (this._arrayRandom.length >= HomeEnum.MAX_RANDOM) {
-          if (this._arrayRandom.length + 1 === HomeEnum.MAX_RANDOM + 1) {
-            this._arrayRandom.push(0);
-          }
-          break;
-        }
-        const _indexRandom = Math.round(Math.random() * (HomeEnum.MAX_RANDOM - 1 + 1) + 1);
-        const __indexOf = this._arrayRandom.indexOf(_indexRandom);
-        if (__indexOf === -1) {
+        const _indexRandom = _random();
+        if (_indexOf(_indexRandom)) {
           this._arrayRandom.push(_indexRandom);
           break;
         }
