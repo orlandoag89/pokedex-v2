@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HomeFacade } from '../home.facade';
-import { Observable, map, tap, switchMap, EMPTY } from 'rxjs';
+import { Observable, map, switchMap, EMPTY } from 'rxjs';
 import { PokemonModel } from '@core/services';
 import { PokeConsoleComponent, PokeConsoleEnum } from '@smarts-components';
 import {ValuesKeys} from './../enums/values.keys';
@@ -27,18 +27,11 @@ export class HomePageComponent implements OnInit {
     this._facade.pokemonsInStore$().subscribe(l => this._allPokemons = l);
     if (this._allPokemons === 0) {
       this.updateAndRetrievePokemons$().subscribe();
-      // this._facade.offset();
-      // this._facade.retrievePokemons$('0').subscribe();
     }
-    // if (this._allPokemons === 30) {
-    //   this._facade.freePokemons$().subscribe(console.log)
-    // }
-    // this._facade.offset();
     this._facade.freePokemons$().pipe(
       map((v:PokemonModel[]) => v.length),
       switchMap((l:number) => {
         if (l === 0) {
-          console.log(l);
           return this.updateAndRetrievePokemons$();
         }
         return EMPTY;
@@ -82,7 +75,7 @@ export class HomePageComponent implements OnInit {
   }
 
   public capturePokemon(currentPokemon: PokemonModel) {
-    this._facade.capturePokemon(currentPokemon);
+    this._facade.capture(currentPokemon);
   }
 
   private updateAndRetrievePokemons$ = () => {

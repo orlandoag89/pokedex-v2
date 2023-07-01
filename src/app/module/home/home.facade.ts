@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
+import { EMPTY, Observable, map, switchMap } from "rxjs";
 import { BaseFacade } from "@core/base-facade";
 import { PokeStoreKeys, PokemonModel } from "@core/services";
 import { ValuesKeys } from "./enums/values.keys";
-import { EMPTY, Observable, map, switchMap, filter, reduce, toArray, tap } from "rxjs";
 import { HomeEnum } from "./enums/home.enum";
 
 @Injectable({providedIn: 'root'})
 export class HomeFacade extends BaseFacade {
+
+  private _arrayRandom: number[] = [];
 
   override initTranslate(): Map<string, string> {
     return this.translation.doTranslate('home', Object.values(ValuesKeys));
@@ -28,7 +30,12 @@ export class HomeFacade extends BaseFacade {
   }
 
   public getRandomPokemon$():Observable<PokemonModel> {
-    const indexRandom = Math.round(Math.random() * (HomeEnum.LIMIT_RANDOM - 1 + 1) + 1);
+    let _currentIndex = this.pokeStoreService.getItemSessionStorage(PokeStoreKeys.CURRENT_RANDOM_INDEX);
+    if (!_currentIndex) {
+      _currentIndex = this.random() + '';
+      this.pokeStoreService.setItemSessionStorage(PokeStoreKeys.CURRENT_RANDOM_INDEX, _currentIndex);
+    }
+    console.log("🚀 ~ file: home.facade.ts:39 ~ HomeFacade ~ _currentIndex:", this._arrayRandom)
     return this.loading$.pipe(
       map(l => l),
       switchMap(lr => {
@@ -37,11 +44,12 @@ export class HomeFacade extends BaseFacade {
         }
         return EMPTY;
       }),
-      map(p => p[indexRandom]|| undefined)
+      map(p => p[parseInt(_currentIndex!)]|| undefined)
     );
   }
 
   public capture(currentPokemon: PokemonModel) {
+    this.pokeStoreService.removeSessionStorage(PokeStoreKeys.CURRENT_RANDOM_INDEX);
     this.capturePokemon(currentPokemon);
   }
 
@@ -55,5 +63,29 @@ export class HomeFacade extends BaseFacade {
     return this.pokemons$.pipe(
       map((p: PokemonModel[]) => p.filter(v => v.is_free))
     )
+  }
+
+  private random(): number {
+    const indexRandom = Math.round(Math.random() * (HomeEnum.MAX_RANDOM - HomeEnum.MIN_RANDOM + 1) + HomeEnum.MIN_RANDOM);
+    const _indexOf = this._arrayRandom.indexOf(indexRandom);
+    if (_indexOf === -1) {
+      this._arrayRandom.push(indexRandom);
+    } else {
+      while(true) {
+        if (this._arrayRandom.length >= HomeEnum.MAX_RANDOM) {
+          if (this._arrayRandom.length + 1 === HomeEnum.MAX_RANDOM + 1) {
+            this._arrayRandom.push(0);
+          }
+          break;
+        }
+        const _indexRandom = Math.round(Math.random() * (HomeEnum.MAX_RANDOM - 1 + 1) + 1);
+        const __indexOf = this._arrayRandom.indexOf(_indexRandom);
+        if (__indexOf === -1) {
+          this._arrayRandom.push(_indexRandom);
+          break;
+        }
+      }
+    }
+    return this._arrayRandom.slice(-1)[0];
   }
 }

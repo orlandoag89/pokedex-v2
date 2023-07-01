@@ -1,3 +1,5 @@
 export enum HomeEnum {
-  LIMIT_RANDOM = 29
+  MAX_RANDOM = 28,
+
+  MIN_RANDOM = 0
 }

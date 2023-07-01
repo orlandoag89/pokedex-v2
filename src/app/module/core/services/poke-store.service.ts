@@ -10,4 +10,8 @@ export class PokeStoreService {
   public getItemSessionStorage(key:string): string|null {
     return sessionStorage.getItem(key);
   }
+
+  public removeSessionStorage(key:string): void {
+    return sessionStorage.removeItem(key);
+  }
 }
